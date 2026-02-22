@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Health Diary - Home</title>
-    <link rel="stylesheet" href="./src/css/style.css">
   </head>
   <body>
     
@@ -12,29 +11,46 @@
       <nav class="main-nav">
         <ul>
           <li><a href="./index.html" class="active">Home</a></li>
-          <li><a href="./bmi/index.html">BMI Calculator</a></li>
+          <li><a href="./src/bmi/index.html">BMI Calculator</a></li>
+          <li><a href="./fetchtestaus.html">User Management</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
-    </header> <section class="hero-banner">
+    </header> 
+
+    <section class="hero-banner">
       <div class="hero-content">
         <h2>Your Wellness Journey Starts Here</h2>
         <p>Track, improve, and succeed.</p>
       </div>
     </section>
+
     <main class="container">
       
       <section class="about-section">
         <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=500&auto=format&fit=crop" alt="Yoga and Wellness" class="profile-pic">
-        
         <div class="absolute-heart">❤️</div>
-
         <div class="about-text">
           <h1>My Wellness Journey</h1>
           <p>Welcome to my health diary.</p>
           <button class="cta-button">Read More</button>
         </div>
+      </section>
+
+      <section class="diary-section" style="margin-top: 40px;">
+        <h2>My Diary Entries</h2>
+        <table id="bmi-table"> <thead>
+            <tr>
+              <th>Date</th>
+              <th>Mood</th>
+              <th>Weight</th>
+              <th>Info</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="diary-tbody">
+            </tbody>
+        </table>
       </section>
 
       <section class="contact-section">
@@ -47,6 +63,6 @@
 
     </main>
 
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>

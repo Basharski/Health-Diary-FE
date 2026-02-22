@@ -1,3 +1,6 @@
+import '../css/style.css'; 
+
+
 document.getElementById('calculate-btn').addEventListener('click', function() {
     const height = Number(document.getElementById('height').value);
     const weight = Number(document.getElementById('weight').value);

@@ -1,3 +1,8 @@
+:root {
+    --primary-green: #27ae60;
+    --primary-green-dark: #219653;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -10,6 +15,72 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-card {
+    background: #f8f9fb;
+    border: 1px solid #e2e6ea;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.form-card label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cfd6dd;
+    border-radius: 6px;
+    margin-top: 6px;
+    box-sizing: border-box;
+}
+
+.info-box {
+    background: #eef5ff;
+    border: 1px solid #cfe0ff;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0 20px 0;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid #e1e5ea;
+    padding: 10px;
+    text-align: left;
+}
+
+.data-table th {
+    background: #f3f5f8;
 }
 
 /* --- Navigation --- */
@@ -31,13 +102,13 @@ body {
 }
 
 .main-nav a.active {
-    color: #27ae60;
-    border-bottom: 2px solid #27ae60;
+    color: var(--primary-green);
+    border-bottom: 2px solid var(--primary-green);
 }
 
 /* --- Task 1: Absolute Positioning --- */
 .about-section {
-    position: relative; /* This acts as the anchor */
+    position: relative; 
     display: flex;
     gap: 20px;
     padding: 20px;
@@ -53,7 +124,7 @@ body {
 }
 
 .absolute-heart {
-    position: absolute; /* Detached from normal flow */
+    position: absolute; 
     top: 10px;
     left: 10px;
     background: white;
@@ -73,7 +144,7 @@ body {
 
 /* --- Buttons --- */
 .cta-button {
-    background-color: #27ae60;
+    background-color: var(--primary-green);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -82,8 +153,17 @@ body {
     font-size: 16px;
     margin-top: 10px;
 }
+
 .cta-button:hover {
-    background-color: #219653;
+    background-color: var(--primary-green-dark);
+}
+
+.cta-button.danger {
+    background-color: #e74c3c;
+}
+
+.cta-button.danger:hover {
+    background-color: #cf3c2f;
 }
 
 /* --- BMI Calculator --- */
@@ -152,12 +232,11 @@ img {
 
 /* --- Task 1: Hero Banner --- */
 .hero-banner {
-    /* We use a linear-gradient to darken the image slightly so white text is readable */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1200&auto=format&fit=crop');
-    background-size: cover;     /* This is the magic property that makes it fit the area! */
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
-    height: 40vh;               /* Takes up 40% of the screen height */
+    height: 40vh; 
     min-height: 250px;
     display: flex;
     align-items: center;
@@ -173,12 +252,8 @@ img {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* --- Task 2: Media Queries (Breakpoints) --- */
-
-/* When the screen is 768px or smaller (Tablets & Phones) */
+/* --- Task 2: Media Queries --- */
 @media (max-width: 768px) {
-    
-    /* 1. Make the navigation stack vertically instead of side-by-side */
     .main-nav ul {
         flex-direction: column;
         align-items: center;
@@ -191,27 +266,66 @@ img {
         text-align: center;
     }
 
-    /* 2. Stack the About section vertically */
     .about-section {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    /* Adjust the floating heart position so it doesn't look weird on mobile */
     .absolute-heart {
         top: 20px;
         left: 20px;
     }
 
-    /* 3. Make Hero text slightly smaller */
     .hero-content h2 {
         font-size: 1.8rem;
     }
 
-    /* 4. Fix BMI table overflowing on small screens */
     #bmi-table {
         display: block;
-        overflow-x: auto; /* Adds a scrollbar just for the table if it's too wide */
+        overflow-x: auto; 
     }
+}
+
+/* --- Assignment Requirement: Snackbar Logic --- */
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-weight: 500;
+}
+
+#snackbar.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Specifically for Backend error messages */
+#snackbar.error { 
+    background-color: #e74c3c !important; 
+}
+
+/* Specifically for successful additions/deletions */
+#snackbar.success { 
+    background-color: var(--primary-green) !important; 
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }
