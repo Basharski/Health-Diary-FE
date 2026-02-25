@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Health Diary - Login</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="top-header">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../bmi/index.html">BMI Calculator</a></li>
+          <li><a href="../entries/index.html">Diary Cards</a></li>
+          <li><a href="./login.html" class="active">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h2>Login to Fetch Entries</h2>
+        <p>Submit credentials, capture your userId, and filter entries.</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="card">
+        <h1>Authenticate</h1>
+        <p>On success the returned userId is stored in localStorage and used to filter your entries.</p>
+
+        <form id="login-form" class="form-card">
+          <label for="login-username">Username</label>
+          <input
+            type="text"
+            id="login-username"
+            name="username"
+            placeholder="username"
+            minlength="3"
+            maxlength="50"
+            autocomplete="username"
+            required
+          />
+
+          <label for="login-password">Password</label>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            placeholder="password"
+            minlength="6"
+            maxlength="100"
+            autocomplete="current-password"
+            required
+          />
+
+          <button type="submit" class="cta-button">Login</button>
+        </form>
+
+        <div class="diary-header" style="margin-top: 20px;">
+          <p id="login-status">Not logged in yet. Submit the form to log in.</p>
+          <button id="logout-btn" class="cta-button danger">Logout</button>
+        </div>
+
+        <div class="info-box">
+          <strong>Flow:</strong> send credentials → receive userId → save to localStorage → entries page filters by that user.
+        </div>
+      </section>
+    </main>
+
+    <div id="snackbar"></div>
+
+    <script type="module" src="./login.js"></script>
+  </body>
+</html>

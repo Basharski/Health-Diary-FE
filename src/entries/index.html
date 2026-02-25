@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Health Diary - Flexbox Cards</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="top-header">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../bmi/index.html">BMI Calculator</a></li>
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+          <li><a href="./index.html" class="active">Diary Cards</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero-banner">
+      <div class="hero-content">
+        <h2>Diary Entries in Flex</h2>
+        <p>Cards stretch, wrap, and align responsively.</p>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="card">
+        <div class="diary-header">
+          <div>
+            <h1>Entries</h1>
+            <p>Data is filtered by your userId if you are logged in.</p>
+          </div>
+          <button id="refresh-entries" class="cta-button">Refresh</button>
+        </div>
+
+        <div class="diary-grid" id="diary-cards"></div>
+      </section>
+    </main>
+
+    <div id="snackbar"></div>
+
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
