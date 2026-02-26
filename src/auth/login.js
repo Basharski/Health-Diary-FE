@@ -1,70 +1,45 @@
-import { fetchData, showSnackbar } from "../js/fetch.js";
 
-const loginUrl = "http://127.0.0.1:3000/api/users/login";
-const form = document.getElementById("login-form");
-const logoutBtn = document.getElementById("logout-btn");
-const statusLine = document.getElementById("login-status");
 
-const renderStatus = (message, isError = false) => {
-  if (!statusLine) return;
-  statusLine.textContent = message;
-  statusLine.className = isError ? "error" : "success";
-};
+import { login, isLoggedIn } from "../js/auth.js";
+import { showSnackbar } from "../js/fetch.js";
 
-const refreshLoginHint = () => {
-  const userId = localStorage.getItem("userId");
-  if (!statusLine) return;
-  if (userId) {
-    statusLine.textContent = `Logged in as user ${userId}. Ready for requests.`;
-    statusLine.className = "success";
-  } else {
-    statusLine.textContent = "Not logged in yet. Submit the form to log in.";
-    statusLine.className = "";
+document.addEventListener("DOMContentLoaded", () => {
+  const redirectToEntries = () => {
+    window.location.href = "../entries/index.html";
+  };
+
+  const form = document.getElementById("login-form");
+  const userInput = document.getElementById("login-username");
+  const passInput = document.getElementById("login-password");
+  const submitBtn = document.getElementById("login-submit");
+
+  // If already logged in, you can redirect or just show a message
+  if (isLoggedIn()) {
+    showSnackbar("Already logged in");
+    setTimeout(redirectToEntries, 500);
   }
-};
 
-if (form) {
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) {
-      showSnackbar("Check username and password requirements.", true);
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const username = userInput?.value?.trim();
+    const password = passInput?.value;
+
+    if (!username || !password) {
+      showSnackbar("Username and password required", true);
       return;
     }
 
-    const payload = {
-      username: document.getElementById("login-username").value.trim(),
-      password: document.getElementById("login-password").value,
-    };
+    submitBtn && (submitBtn.disabled = true);
 
-    const result = await fetchData(loginUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    const res = await login(username, password);
 
-    if (result && !result.error && result.userId) {
-      localStorage.setItem("userId", String(result.userId));
-      renderStatus("Login successful. Redirecting...", false);
-      showSnackbar("Login successful");
-      setTimeout(() => {
-        window.location.href = "../entries/index.html";
-      }, 900);
-    } else {
-      const message =
-        (result && (result.error || result.message)) ||
-        "Login failed. Check username/password.";
-      renderStatus(message, true);
-      showSnackbar(message, true);
+    submitBtn && (submitBtn.disabled = false);
+
+    if (!res?.error) {
+      showSnackbar(res.message || "Login successful");
+      setTimeout(redirectToEntries, 400);
     }
   });
-}
-
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("userId");
-    renderStatus("You are logged out.", false);
-    showSnackbar("Logged out");
-  });
-}
-
-refreshLoginHint();
+});
