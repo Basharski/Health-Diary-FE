@@ -42,6 +42,55 @@
 
     <div id="snackbar"></div>
 
+    <!-- Keep your global main.js if you need nav, etc. -->
     <script type="module" src="../js/main.js"></script>
+
+    <!-- Entries page logic -->
+    <script type="module">
+      import { getEntries } from "../js/entries.js";
+      import { showSnackbar } from "../js/fetch.js";
+
+      const refreshBtn = document.getElementById("refresh-entries");
+      const cards = document.getElementById("diary-cards");
+
+      const render = (entries) => {
+        if (!cards) return;
+        cards.innerHTML = "";
+
+        if (!entries || entries.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "info-box";
+          empty.textContent = "No entries to show. Create one or check your login.";
+          cards.appendChild(empty);
+          return;
+        }
+
+        entries.forEach((e) => {
+          const card = document.createElement("article");
+          card.className = "diary-card";
+          card.innerHTML = `
+            <h3>${e.entry_date ?? ""} — ${e.mood ?? ""}</h3>
+            <p><strong>Weight:</strong> ${e.weight ?? ""}</p>
+            <p><strong>Sleep (h):</strong> ${e.sleep_hours ?? ""}</p>
+            <p>${e.notes ?? ""}</p>
+          `;
+          cards.appendChild(card);
+        });
+      };
+
+      const load = async () => {
+        const res = await getEntries();
+        if (res?.error) {
+          render([]); // clear or show empty
+          showSnackbar(res.error, true);
+          return;
+        }
+        render(res);
+        showSnackbar("Entries loaded");
+      };
+
+      refreshBtn?.addEventListener("click", load);
+      load(); // initial load
+    </script>
   </body>
 </html>
