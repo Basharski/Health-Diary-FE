@@ -21,14 +21,17 @@
     <section class="hero-banner">
       <div class="hero-content">
         <h2>Login to Fetch Entries</h2>
-        <p>Submit credentials, capture your userId, and filter entries.</p>
+        <p>Submit credentials, capture your token, and filter entries.</p>
       </div>
     </section>
 
     <main class="container">
       <section class="card">
         <h1>Authenticate</h1>
-        <p>On success the returned userId is stored in localStorage and used to filter your entries.</p>
+        <p>
+          On success the JWT and user info are stored in localStorage and used to
+          authorize protected requests (entries, me, user update).
+        </p>
 
         <form id="login-form" class="form-card">
           <label for="login-username">Username</label>
@@ -55,7 +58,7 @@
             required
           />
 
-          <button type="submit" class="cta-button">Login</button>
+          <button id="login-submit" type="submit" class="cta-button">Login</button>
         </form>
 
         <div class="diary-header" style="margin-top: 20px;">
@@ -64,7 +67,8 @@
         </div>
 
         <div class="info-box">
-          <strong>Flow:</strong> send credentials → receive userId → save to localStorage → entries page filters by that user.
+          <strong>Flow:</strong> send credentials → receive JWT + user → store in localStorage →
+          protected routes use Authorization: Bearer token → entries page shows your data.
         </div>
       </section>
     </main>
