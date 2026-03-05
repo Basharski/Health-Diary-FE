@@ -399,6 +399,40 @@ img {
     color: #56616f;
 }
 
+/* --- Dialog (Items Info) --- */
+.info_dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.info_dialog::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.item_info div {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.item_info span {
+    font-weight: 400;
+    color: #333;
+}
+
+.info_dialog button {
+    margin-top: 10px;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 .diary-card__weight {
     background: #eef6f0;
     color: #1b7d40;

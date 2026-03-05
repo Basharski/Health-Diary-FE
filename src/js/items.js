@@ -9,6 +9,8 @@ const updateForm = document.getElementById("update-item-form");
 const getForm = document.getElementById("get-item-form");
 const deleteForm = document.getElementById("delete-item-form");
 const shouldInit = tableBody || addForm || updateForm || getForm || deleteForm;
+const dialog = document.querySelector(".info_dialog");
+const dialogCloseBtn = document.querySelector(".info_dialog button");
 
 const renderItems = (items) => {
   if (!tableBody) return;
@@ -45,8 +47,16 @@ const getItems = async () => {
 
 const getItemById = async (id) => {
   const data = await fetchData(`${url}/${id}`);
-  if (!data.error) setInfo(`Item #${data.id}: ${data.name}`);
+  if (!data.error) {
+    setInfo(`Item #${data.id}: ${data.name}`);
+    return data;
+  }
+  return null;
 };
+
+if (dialog && dialogCloseBtn) {
+  dialogCloseBtn.addEventListener("click", () => dialog.close());
+}
 
 if (shouldInit && tableBody) {
   tableBody.addEventListener("click", async (event) => {
@@ -63,7 +73,18 @@ if (shouldInit && tableBody) {
     }
 
     if (event.target.classList.contains("check")) {
-      await getItemById(id);
+      const item = await getItemById(id);
+      if (item && dialog) {
+        const info = dialog.querySelector(".item_info");
+        if (info) {
+          info.innerHTML = `
+            <div>Item ID: <span>${item.id}</span></div>
+            <div>Item Name: <span>${item.name}</span></div>
+            <div>Weight: <span>${item.weight ?? "Not available"}</span></div>
+          `;
+        }
+        dialog.showModal();
+      }
     }
   });
 }

@@ -12,8 +12,11 @@
         <ul>
           <li><a href="../../index.html">Home</a></li>
           <li><a href="../bmi/index.html">BMI Calculator</a></li>
+          <li><a href="../../fetchtestaus.html">Fetch API Lab</a></li>
           <li><a href="../entries/index.html">Diary Cards</a></li>
           <li><a href="./login.html" class="active">Login</a></li>
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -41,7 +44,8 @@
             name="username"
             placeholder="username"
             minlength="3"
-            maxlength="50"
+            maxlength="20"
+            pattern="[A-Za-z0-9]+"
             autocomplete="username"
             required
           />
@@ -52,8 +56,8 @@
             id="login-password"
             name="password"
             placeholder="password"
-            minlength="6"
-            maxlength="100"
+            minlength="8"
+            maxlength="128"
             autocomplete="current-password"
             required
           />

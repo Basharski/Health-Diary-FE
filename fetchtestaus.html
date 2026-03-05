@@ -10,10 +10,12 @@
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="./src/bmi/index.html">BMI Calculator</a></li>
         <li><a href="fetchtestaus.html" class="active">Fetch API Lab</a></li>
         <li><a href="./src/entries/index.html">Diary Cards</a></li>
         <li><a href="./src/auth/login.html">Login</a></li>
-        <li><a href="./src/bmi/index.html">BMI Calculator</a></li>
+        <li><a href="./src/about/index.html">About</a></li>
+        <li><a href="./src/contact/index.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -77,6 +79,15 @@
           <tbody id="items-tbody"></tbody>
         </table>
       </div>
+
+      <dialog class="info_dialog">
+        <div class="item_info">
+          <div>Item ID: <span>Id</span></div>
+          <div>Item Name: <span>Name</span></div>
+          <div>Weight: <span>Weight</span></div>
+        </div>
+        <button autofocus>Close</button>
+      </dialog>
     </section>
 
     <section class="card">
@@ -85,11 +96,11 @@
       <form id="add-user-form" class="form-card">
         <h3>Add New User</h3>
         <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Username" required>
+        <input type="text" id="username" placeholder="Username" minlength="3" maxlength="20" pattern="[A-Za-z0-9]+" required>
         <label for="email">Email</label>
         <input type="email" id="email" placeholder="Email" required>
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="password" placeholder="Password" minlength="8" maxlength="128" required>
         <button type="submit" class="cta-button">Create User</button>
       </form>
 
