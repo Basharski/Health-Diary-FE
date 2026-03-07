@@ -9,7 +9,12 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, 'bmi/index.html'),
+        fetch: resolve(__dirname, 'fetchtestaus.html'),
+        login: resolve(__dirname, 'src/auth/login.html'),
+        bmi: resolve(__dirname, 'src/bmi/index.html'),
+        about: resolve(__dirname, 'src/about/index.html'),
+        contact: resolve(__dirname, 'src/contact/index.html'),
+        entries: resolve(__dirname, 'src/entries/index.html'),
       },
     },
   },
