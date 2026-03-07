@@ -1,5 +1,5 @@
 
-
+// AI-avusteinen: moduulin rakenne ja CRUD-kutsut viimeistelty Copilotin avulla.
 import { fetchData, apiUrl } from "./fetch.js";
 
 export const getUsers = async () => fetchData(apiUrl("/users"));

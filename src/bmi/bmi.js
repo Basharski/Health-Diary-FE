@@ -1,4 +1,6 @@
-import '../css/style.css'; 
+import '../css/style.css';
+
+// AI-avusteinen: BMI-laskennan logiikka ja taulukon korostus tarkennettu Copilotin avulla.
 
 
 document.getElementById('calculate-btn').addEventListener('click', function() {

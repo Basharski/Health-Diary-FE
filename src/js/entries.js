@@ -1,5 +1,5 @@
 
-
+// AI-avusteinen: entries-CRUD-kutsujen runko tarkennettu Copilotin avulla.
 import { fetchData, apiUrl } from "./fetch.js";
 
 export const getEntries = async () => {

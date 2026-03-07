@@ -1,5 +1,5 @@
 
-
+// AI-avusteinen: lomakkeen validointi ja kirjautumisen ohjaus tarkennettu Copilotin avulla.
 import { login, isLoggedIn } from "../js/auth.js";
 import { showSnackbar } from "../js/fetch.js";
 

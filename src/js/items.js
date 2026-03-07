@@ -1,3 +1,4 @@
+// AI-avusteinen: items-sivun CRUD-logiikka ja dialogin käyttö viimeistelty Copilotin avulla.
 import { fetchData, showSnackbar } from "./fetch.js";
 
 const url = "http://127.0.0.1:3000/api/items";

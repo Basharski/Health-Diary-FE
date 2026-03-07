@@ -1,5 +1,5 @@
 
-
+// AI-avusteinen: kirjautumisen/uloskirjautumisen ohjaus ja token-logiikka tarkennettu Copilotin avulla.
 import {
   fetchData,
   apiUrl,
