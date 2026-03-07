@@ -238,6 +238,16 @@ Projektin kehityksessä hyödynnettiin GitHub Copilotia seuraavissa asioissa:
 
 ---
 
+## 🧪 Testikäyttäjät
+
+Seuraavat testikäyttäjät löytyvät Back‑endistä (src/users.js):
+
+- **username:** `johndoe` | **password:** `password1`
+- **username:** `janedoe` | **password:** `password2`
+- **username:** `bobsmith` | **password:** `password3`
+
+---
+
 ## 🔗 Linkit
 
 - **Julkaistu sovellus:** https://users.metropolia.fi/~bashara/FE-Web_Sovellu/FE_FINAL/
