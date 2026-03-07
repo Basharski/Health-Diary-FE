@@ -82,7 +82,7 @@ Workouts {
 
 Users ||--o{ DiaryEntries : "has"
 Users ||--o{ Workouts : "performs"
-```  
+```
 
 ### Taulut
 
@@ -240,5 +240,6 @@ Projektin kehityksessä hyödynnettiin GitHub Copilotia seuraavissa asioissa:
 
 ## 🔗 Linkit
 
+- **Julkaistu sovellus:** https://users.metropolia.fi/~bashara/FE-Web_Sovellu/FE_FINAL/
 - **Front-end repo:** https://github.com/Basharski/Health-Diary-FE
 - **Back-end repo:** https://github.com/Basharski/Health-Diary-BE
