@@ -131,19 +131,18 @@ Health-Diary-FE/
 
 ## 🖼️ Kuvakaappaukset sovelluksen näkymistä
 
-> **Huom:** Lisää kuvakaappaukset tähän sovelluksen keskeisistä näkymistä. Voit raahata kuvatiedostot suoraan GitHubin README-editoriin tai lisätä ne `public/screenshots/`-kansioon.
 
 ### Etusivu
-<!-- Lisää kuvakaappaus: ![Etusivu](public/screenshots/home.png) -->
+<img width="1919" height="849" alt="Screenshot 2026-03-07 092020" src="https://github.com/user-attachments/assets/cf4bf802-3ddc-40b9-973c-92d229bf53bd" />
 
 ### Kirjautumissivu
-<!-- Lisää kuvakaappaus: ![Login](public/screenshots/login.png) -->
+<img width="1919" height="848" alt="Screenshot 2026-03-07 092114" src="https://github.com/user-attachments/assets/03228cfb-9380-4006-b2d0-86b9e149b23c" />
 
 ### Päiväkirjakirjaukset
-<!-- Lisää kuvakaappaus: ![Entries](public/screenshots/entries.png) -->
+<img width="1919" height="832" alt="Screenshot 2026-03-07 092159" src="https://github.com/user-attachments/assets/70b5781d-53fc-4c50-b567-c0500f1acb4d" />
 
 ### BMI-laskin
-<!-- Lisää kuvakaappaus: ![BMI](public/screenshots/bmi.png) -->
+<img width="1919" height="854" alt="Screenshot 2026-03-07 092745" src="https://github.com/user-attachments/assets/bdd3d304-1a9d-44bd-b7f4-100ca5b6ec6b" />
 
 ---
 
@@ -207,7 +206,6 @@ VITE_API_BASE_URL=http://127.0.0.1:3000/api
 
 - **In-memory data:** Back-end ei käytä pysyvää tietokantaa – palvelimen uudelleenkäynnistys nollaa kaiken datan
 - **Items-suojaus:** Items-endpointit eivät vaadi autentikointia (suunniteltu harjoitustarkoituksiin)
-- **Kuvakaappaukset puuttuvat:** README ei vielä sisällä todellisia kuvakaappauksia käyttöliittymästä
 
 ---
 
