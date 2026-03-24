@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 dist
+
+# Robot Framework results
+results/output.xml
+results/log.html
+results/report.html

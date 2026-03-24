@@ -96,6 +96,71 @@ Users ||--o{ Workouts : "performs"
 
 ---
 
+## 🤖 Robot Framework -testaus
+
+### Tehtävä 1 – Asennetut työkalut
+
+| Työkalu | Versio | Kuvaus |
+|---|---|---|
+| Robot Framework | 7.4.2 | Testiautomaatiokehys |
+| robotframework-browser | 19.12.7 | Web-testaus (Playwright-pohjainen) |
+| robotframework-requests | 0.9.7 | REST API -testaus |
+| robotframework-crypto | 0.4.2 | Salasanojen kryptaus testeissä |
+| robotidy | – | Ei tue Python 3.14 vielä (yhteensopivuusongelma) |
+
+### Vaatimukset
+
+- Python 3.x
+- Robot Framework 7.x
+- robotframework-browser
+- robotframework-requests
+- robotframework-crypto
+
+### Asennus
+
+```bash
+pip install robotframework
+pip install robotframework-browser
+pip install robotframework-requests
+pip install robotframework-crypto
+
+# Browser Libraryn alustus (lataa Playwright-selaimet)
+rfbrowser init
+```
+
+> **Huom:** `robotidy` ei tällä hetkellä tue Python 3.14:ää. Asennettavissa kun yhteensopiva versio julkaistaan.
+
+### Testiprojektin rakenne
+
+```
+my-vite-app/
+├── tests/
+│   └── api_tests.robot       # API-testitapaukset
+├── resources/
+│   ├── keywords.resource     # Yhteiset avainsanat
+│   └── variables.py          # Muuttujat (BASE_URL jne.)
+└── results/                  # Testiajot tallentuvat tänne (gitignored)
+    ├── output.xml
+    ├── log.html
+    └── report.html
+```
+
+### Testien ajaminen
+
+Varmista ensin, että back-end palvelin on käynnissä osoitteessa `http://127.0.0.1:3000`.
+
+```bash
+# Aja kaikki testit ja tallenna tulokset results/-kansioon
+robot --outputdir results tests/
+
+# Aja yksittäinen testitiedosto
+robot --outputdir results tests/api_tests.robot
+```
+
+Tulokset löytyvät `results/report.html`-tiedostosta selaimella avattavana raporttina.
+
+---
+
 ## 📁 Projektirakenne
 
 ```
