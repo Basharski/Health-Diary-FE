@@ -130,16 +130,49 @@ rfbrowser init
 
 > **Huom:** `robotidy` ei tällä hetkellä tue Python 3.14:ää. Asennettavissa kun yhteensopiva versio julkaistaan.
 
+### Tehtävä 2 – Kirjautumistesti (Browser Library)
+
+Tiedosto: `tests/login_tests.robot`
+
+Testitapaukset:
+| Testitapaus | Kuvaus |
+|---|---|
+| Successful Login | Kirjautuu oikeilla tunnuksilla (johndoe/password1), tarkistaa ohjauksen merkintäsivulle |
+| Failed Login With Wrong Password | Syöttää väärän salasanan, varmistaa että käyttäjä pysyy kirjautumissivulla |
+| Login With Empty Fields | Yrittää kirjautua tyhjillä kentillä, tarkistaa HTML5-validoinnin |
+
+**Havainnot:** Browser Library (Playwright-pohjainen) toimii hyvin SPA-sovelluksen kanssa. Testit käyttävät `id=`-selektoreita lomakekenttien paikallistamiseen.
+
+### Tehtävä 3 – Web form -kenttien testaus (Browser Library)
+
+Tiedosto: `tests/webform_tests.robot`
+
+Testisivu: https://www.selenium.dev/selenium/web/web-form.html
+
+Testitapaukset:
+| Testitapaus | Kuvaus |
+|---|---|
+| Dropdown Select | Valitsee vaihtoehdon select-pudotusvalikosta |
+| Datalist Input | Kirjoittaa "New York" datalist-kenttään |
+| Checkbox Interaction | Poistaa valinnan #1:stä, valitsee #2:n |
+| Radio Button Selection | Valitsee toisen radio-napin |
+| File Input Verification | Varmistaa että file input -kenttä on olemassa ja oikeanlainen |
+| Full Form Submission | Täyttää kaikki kentät ja lähettää, tarkistaa "Received!"-viestin |
+
+**Havainnot:** Browser Library tukee hyvin erilaisia syöttökenttiä. `Select Options By` toimii sekä value- että label-arvoilla. Lomakkeen lähettäminen ja vastauksen tarkistaminen onnistui odotetusti.
+
 ### Testiprojektin rakenne
 
 ```
 my-vite-app/
 ├── tests/
-│   └── api_tests.robot       # API-testitapaukset
+│   ├── api_tests.robot         # API-testitapaukset (Tehtävä 9)
+│   ├── login_tests.robot       # Kirjautumistestit (Tehtävä 2)
+│   └── webform_tests.robot     # Web form -kenttätestit (Tehtävä 3)
 ├── resources/
-│   ├── keywords.resource     # Yhteiset avainsanat
-│   └── variables.py          # Muuttujat (BASE_URL jne.)
-└── results/                  # Testiajot tallentuvat tänne (gitignored)
+│   ├── keywords.resource       # Yhteiset avainsanat
+│   └── variables.py            # Muuttujat (BASE_URL, FRONTEND_URL jne.)
+└── results/                    # Testiajot tallentuvat tänne (gitignored)
     ├── output.xml
     ├── log.html
     └── report.html
