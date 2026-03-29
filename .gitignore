@@ -25,6 +25,4 @@ dist-ssr
 dist
 
 # Robot Framework results
-results/output.xml
-results/log.html
-results/report.html
+# results/ tiedostot commitoidaan GitHubiin tehtäväpalautusta varten

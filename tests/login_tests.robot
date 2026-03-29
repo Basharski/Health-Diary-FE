@@ -5,7 +5,7 @@ Documentation       Tehtävä 2: Kirjautumistesti Health Diary -sovellukselle
 ...                 HUOM: Ennen testien ajamista käynnistä:
 ...                   1. Back-end:  node server.js  (port 3000)
 ...                   2. Front-end: npm run dev     (port 5173)
-Library             Browser    auto_closing_level=SUITE
+Library             Browser    auto_closing_level=TEST
 Variables           ../resources/variables.py
 
 

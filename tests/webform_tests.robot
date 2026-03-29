@@ -9,6 +9,7 @@ Library             Browser    auto_closing_level=SUITE
 
 *** Variables ***
 ${WEBFORM_URL}      https://www.selenium.dev/selenium/web/web-form.html
+${FORM_PASSWORD}    salasana
 
 
 *** Test Cases ***
@@ -84,7 +85,7 @@ Kaikkien kenttien lomake lähetetään onnistuneesti
     Get Title    ==    Web form
     # Peruskentät
     Type Text    input[name="my-text"]    Testi    delay=0.05 s
-    Type Secret    input[name="my-password"]    ${{secrets.get("password", "salasana")}}    delay=0.05 s
+    Type Secret    input[name="my-password"]    $FORM_PASSWORD    delay=0.05 s
     Type Text    textarea[name="my-textarea"]    Robot Framework testi    delay=0.05 s
     # Dropdown
     Select Options By    select[name="my-select"]    value    3
