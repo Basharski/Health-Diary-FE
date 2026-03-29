@@ -25,4 +25,6 @@ dist-ssr
 dist
 
 # Robot Framework results
-# results/ tiedostot commitoidaan GitHubiin tehtäväpalautusta varten
+# log.html, report.html ja output.xml commitoidaan GitHubiin tehtäväpalautusta varten
+results/playwright-log*.txt
+results/browser/
