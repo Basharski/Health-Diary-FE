@@ -132,7 +132,7 @@ rfbrowser init
 
 ### Tehtävä 2 – Kirjautumistesti (Browser Library)
 
-Tiedosto: `tests/login_tests.robot`
+Tiedosto: [tests/login_tests.robot](tests/login_tests.robot)
 
 Testitapaukset:
 | Testitapaus | Kuvaus |
@@ -145,7 +145,7 @@ Testitapaukset:
 
 ### Tehtävä 3 – Web form -kenttien testaus (Browser Library)
 
-Tiedosto: `tests/webform_tests.robot`
+Tiedosto: [tests/webform_tests.robot](tests/webform_tests.robot)
 
 Testisivu: https://www.selenium.dev/selenium/web/web-form.html
 
@@ -161,17 +161,68 @@ Testitapaukset:
 
 **Havainnot:** Browser Library tukee hyvin erilaisia syöttökenttiä. `Select Options By` toimii sekä value- että label-arvoilla. Lomakkeen lähettäminen ja vastauksen tarkistaminen onnistui odotetusti.
 
+### Tehtävä 4 – Päiväkirjamerkinnän luontitesti (RequestsLibrary)
+
+Tiedosto: [tests/entry_tests.robot](tests/entry_tests.robot)
+
+Testitapaukset:
+| Testitapaus | Kuvaus |
+|---|---|
+| Kirjautuminen onnistuu ja palauttaa tokenin | Varmistaa JWT-tokenin saamisen kirjautumisesta |
+| Uusi päiväkirjamerkintä luodaan onnistuneesti | Kirjautuu, lähettää POST /api/entries, tarkistaa 201-vastauksen ja entry_id:n |
+| Merkinnät haetaan kirjautuneena käyttäjänä | Tarkistaa, että GET /api/entries palauttaa datan autentikoituneelle käyttäjälle |
+| Merkinnän luominen ilman tokenia palauttaa 401 | Varmistaa suojauksen: ilman JWT:tä vastaus on 401 Unauthorized |
+
+**Havainnot:** Koska sovelluksen etusivulla ei ole vielä UI-lomaketta merkintöjen luomiseen, testi toteutettiin RequestsLibraryllä suoraan REST API:n kautta. `Login And Get Token` -avainsana (keywords.resource) hoitaa kirjautumisen ja tokenin haun. `POST On Session` -kutsu käyttää tokenin Authorization-headerissa.
+
+### Tehtävä 5 – Kirjautumistesti .env-tiedoston tunnuksilla
+
+Tiedosto: [tests/login_env_tests.robot](tests/login_env_tests.robot)
+
+Testitapaukset:
+| Testitapaus | Kuvaus |
+|---|---|
+| Kirjautuminen onnistuu .env-tiedoston tunnuksilla | Lukee TEST_USERNAME ja TEST_PASSWORD .env:stä, kirjautuu, tarkistaa ohjauksen |
+| Kirjautuminen epäonnistuu väärällä .env-salasanalla | Käyttäjänimi .env:stä, mutta väärä salasana estää pääsyn |
+
+**Toteutus:** Tunnukset tallennetaan `.env`-tiedostoon projektin juureen. `resources/variables.py` lataa ne `python-dotenv`-kirjastolla `load_dotenv()`-kutsulla. Robot Framework poimii muuttujat `${TEST_USERNAME}` ja `${TEST_PASSWORD}` automaattisesti Variables-tiedostosta. `.env`-tiedosto on lisätty `.gitignore`:en — oikeita tunnuksia ei julkaista GitHubiin.
+
+**Havainnot:** `python-dotenv` mahdollistaa siistin tavan erottaa konfiguraatio koodista. Muuttujat näkyvät Robot Framework -lokissa arvoinaan (ei kryptattuina) — siksi tehtävä 6 vie turvallisuuden askeleen pidemmälle.
+
+### Tehtävä 6 – Kirjautumistesti kryptatuilla tunnuksilla (CryptoLibrary)
+
+Tiedosto: [tests/login_crypto_tests.robot](tests/login_crypto_tests.robot)
+
+Testitapaukset:
+| Testitapaus | Kuvaus |
+|---|---|
+| Kirjautuminen onnistuu kryptatuilla tunnuksilla | CryptoLibrary purkaa crypt:-muuttujat automaattisesti (variable_decryption=True) |
+| Kryptattu salasana ei näy lokeissa | Demonstroi `Input Password` -avainsanan log-maskauksen CryptoLibraryn kanssa |
+
+**Toteutus:**
+1. Avainpari generoitiin `CryptoUtility`-kirjastolla: julkinen avain `resources/public_key.key`, yksityinen avain `resources/private_key.json`
+2. Tunnukset kryptattiin julkisella avaimella → `crypt:...`-muotoiset arvot tallennettiin testitiedostoon
+3. Testiajon aikana `Library CryptoLibrary %{private_key_password} variable_decryption=True` käyttää yksityistä avainta purkamiseen
+4. Avainparin salasana asetetaan ympäristömuuttujaksi ennen testiä: `$env:private_key_password="testkey123"`
+
+**Havainnot:** CryptoLibrary käyttää elliptistä käyrä -kryptografiaa (EC). `variable_decryption=True` purkaa kaikki `crypt:`-etuliitteelliset Suite Variables -muuttujat automaattisesti ennen testejä. Yksityinen avain ja `.env`-tiedosto on lisätty `.gitignore`:en — ne eivät päädy GitHubiin.
+
 ### Testiprojektin rakenne
 
 ```
 my-vite-app/
 ├── tests/
 │   ├── api_tests.robot         # API-testitapaukset (Tehtävä 9)
+│   ├── entry_tests.robot       # Päiväkirjamerkinnän luontitesti (Tehtävä 4)
 │   ├── login_tests.robot       # Kirjautumistestit (Tehtävä 2)
+│   ├── login_env_tests.robot   # .env-tunnuksilla kirjautuminen (Tehtävä 5)
+│   ├── login_crypto_tests.robot # CryptoLibrary-kirjautuminen (Tehtävä 6)
 │   └── webform_tests.robot     # Web form -kenttätestit (Tehtävä 3)
 ├── resources/
 │   ├── keywords.resource       # Yhteiset avainsanat
-│   └── variables.py            # Muuttujat (BASE_URL, FRONTEND_URL jne.)
+│   ├── variables.py            # Muuttujat (BASE_URL, FRONTEND_URL, .env-lataus)
+│   └── public_key.key          # CryptoLibraryn julkinen avain (gitissä)
+├── .env                        # Piilotetut tunnukset – EI GitHubiin (gitignored)
 └── results/                    # Testiajot tallentuvat tänne (gitignored)
     ├── output.xml
     ├── log.html
@@ -188,6 +239,12 @@ robot --outputdir results tests/
 
 # Aja yksittäinen testitiedosto
 robot --outputdir results tests/api_tests.robot
+robot --outputdir results tests/entry_tests.robot
+robot --outputdir results tests/login_env_tests.robot
+
+# Tehtävä 6: aseta yksityisen avaimen salasana ennen ajoa
+$env:private_key_password="testkey123"
+robot --outputdir results tests/login_crypto_tests.robot
 ```
 
 Tulokset löytyvät `results/report.html`-tiedostosta selaimella avattavana raporttina.

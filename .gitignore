@@ -24,7 +24,10 @@ dist-ssr
 *.sw?
 dist
 
-# Robot Framework results
-# log.html, report.html ja output.xml commitoidaan GitHubiin tehtäväpalautusta varten
 results/playwright-log*.txt
 results/browser/
+
+# Robot Framework – salaiset tiedostot (ei GitHubiin)
+.env
+resources/private_key.json
+resources/password_hash.json
