@@ -20,5 +20,5 @@ robot --outputdir outputs tests/
 
 Tulokset ovat suoraan luettavissa github.io-sivuston kautta:
 
-- [report.html](https://basharski.github.io/health-diary-fe/outputs/report.html)
-- [log.html](https://basharski.github.io/health-diary-fe/outputs/log.html)
+- [report.html](https://basharski.github.io/Health-Diary-FE/outputs/report.html)
+- [log.html](https://basharski.github.io/Health-Diary-FE/outputs/log.html)

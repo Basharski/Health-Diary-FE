@@ -265,8 +265,8 @@ Testitulokset ovat luettavissa suoraan selaimessa ilman kloonausta:
 
 | Tiedosto | GitHub Pages -linkki |
 |----------|---------------------|
-| Raportti | [outputs/report.html](https://basharski.github.io/health-diary-fe/outputs/report.html) |
-| Loki | [outputs/log.html](https://basharski.github.io/health-diary-fe/outputs/log.html) |
+| Raportti | [outputs/report.html](https://basharski.github.io/Health-Diary-FE/outputs/report.html) |
+| Loki | [outputs/log.html](https://basharski.github.io/Health-Diary-FE/outputs/log.html) |
 
 Jokaiseen kansioon on lisätty `README.md`-tiedosto, joka sisältää linkit HTML-tiedostoihin GitHub Pages -navigointia varten:
 - [outputs/README.md](outputs/README.md) – linkit testituloksiin
@@ -433,4 +433,4 @@ Seuraavat testikäyttäjät löytyvät Back‑endistä (src/users.js):
 - **Julkaistu sovellus:** https://users.metropolia.fi/~bashara/FE-Web_Sovellu/FE_FINAL/
 - **Front-end repo:** https://github.com/Basharski/Health-Diary-FE
 - **Back-end repo:** https://github.com/Basharski/Health-Diary-BE
-- **GitHub Pages – testitulokset:** https://basharski.github.io/health-diary-fe/outputs/report.html
+- **GitHub Pages – testitulokset:** https://basharski.github.io/Health-Diary-FE/outputs/report.html
