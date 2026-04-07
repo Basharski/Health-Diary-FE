@@ -31,3 +31,7 @@ results/browser/
 .env
 resources/private_key.json
 resources/password_hash.json
+
+# Robot Framework – results/ on lokaalikäyttöön, outputs/ menee GitHubiin (Tehtävä 7)
+results/
+!results/.gitkeep
