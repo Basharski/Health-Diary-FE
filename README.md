@@ -212,6 +212,7 @@ Testitapaukset:
 ```
 my-vite-app/
 ├── tests/
+│   ├── README.md               # Testitiedostojen kuvaukset ja ajo-ohjeet
 │   ├── api_tests.robot         # API-testitapaukset (Tehtävä 9)
 │   ├── entry_tests.robot       # Päiväkirjamerkinnän luontitesti (Tehtävä 4)
 │   ├── login_tests.robot       # Kirjautumistestit (Tehtävä 2)
@@ -222,11 +223,12 @@ my-vite-app/
 │   ├── keywords.resource       # Yhteiset avainsanat
 │   ├── variables.py            # Muuttujat (BASE_URL, FRONTEND_URL, .env-lataus)
 │   └── public_key.key          # CryptoLibraryn julkinen avain (gitissä)
-├── .env                        # Piilotetut tunnukset – EI GitHubiin (gitignored)
-└── results/                    # Testiajot tallentuvat tänne (gitignored)
-    ├── output.xml
-    ├── log.html
-    └── report.html
+├── outputs/                    # Testitulokset GitHubissa (Tehtävä 7)
+│   ├── README.md               # Linkit log.html ja report.html -tiedostoihin
+│   ├── output.xml
+│   ├── log.html
+│   └── report.html
+└── .env                        # Piilotetut tunnukset – EI GitHubiin (gitignored)
 ```
 
 ### Testien ajaminen
@@ -234,20 +236,43 @@ my-vite-app/
 Varmista ensin, että back-end palvelin on käynnissä osoitteessa `http://127.0.0.1:3000`.
 
 ```bash
-# Aja kaikki testit ja tallenna tulokset results/-kansioon
-robot --outputdir results tests/
+# Aja kaikki testit ja tallenna tulokset outputs/-kansioon (Tehtävä 7)
+robot --outputdir outputs tests/
 
 # Aja yksittäinen testitiedosto
-robot --outputdir results tests/api_tests.robot
-robot --outputdir results tests/entry_tests.robot
-robot --outputdir results tests/login_env_tests.robot
+robot --outputdir outputs tests/api_tests.robot
+robot --outputdir outputs tests/entry_tests.robot
+robot --outputdir outputs tests/login_env_tests.robot
 
 # Tehtävä 6: aseta yksityisen avaimen salasana ennen ajoa
 $env:private_key_password="testkey123"
-robot --outputdir results tests/login_crypto_tests.robot
+robot --outputdir outputs tests/login_crypto_tests.robot
 ```
 
-Tulokset löytyvät `results/report.html`-tiedostosta selaimella avattavana raporttina.
+Tulokset löytyvät `outputs/report.html`-tiedostosta selaimella avattavana raporttina.
+
+### Tehtävä 7 – Tulostiedostojen ohjaaminen erilliseen kansioon
+
+Testien loki- ja raporttitiedostot ohjataan `outputs/`-kansioon käyttämällä `--outputdir outputs`-parametria. Kansio on versiohallinnan piirissä, joten tulokset ovat nähtävillä suoraan GitHubissa ja GitHub Pagesissa.
+
+**Havainnot:** `results/`-kansio on lisätty `.gitignore`:en lokaalikäyttöä varten — se ei päädy GitHubiin. `outputs/`-kansion HTML-tiedostot sen sijaan commitoidaan, jotta ne ovat julkisesti luettavissa github.io:ssa.
+
+### Tehtävä 8 – Testitulokset GitHub Pagesissa
+
+GitHub Pages aktivoitiin repositoriossa: **Settings → Pages → Branch: main → Save**
+
+Testitulokset ovat luettavissa suoraan selaimessa ilman kloonausta:
+
+| Tiedosto | GitHub Pages -linkki |
+|----------|---------------------|
+| Raportti | [outputs/report.html](https://basharski.github.io/health-diary-fe/outputs/report.html) |
+| Loki | [outputs/log.html](https://basharski.github.io/health-diary-fe/outputs/log.html) |
+
+Jokaiseen kansioon on lisätty `README.md`-tiedosto, joka sisältää linkit HTML-tiedostoihin GitHub Pages -navigointia varten:
+- [outputs/README.md](outputs/README.md) – linkit testituloksiin
+- [tests/README.md](tests/README.md) – linkit testitiedostoihin
+
+**Havainnot:** GitHub Pages palvelee suoraan repositorion `main`-haaran tiedostot osoitteesta `https://basharski.github.io/health-diary-fe/`. Markdown-tiedostot renderöidään automaattisesti HTML:ksi, joten `outputs/README.md` toimii navigointilistana tulostiedostoihin.
 
 ---
 
@@ -408,3 +433,4 @@ Seuraavat testikäyttäjät löytyvät Back‑endistä (src/users.js):
 - **Julkaistu sovellus:** https://users.metropolia.fi/~bashara/FE-Web_Sovellu/FE_FINAL/
 - **Front-end repo:** https://github.com/Basharski/Health-Diary-FE
 - **Back-end repo:** https://github.com/Basharski/Health-Diary-BE
+- **GitHub Pages – testitulokset:** https://basharski.github.io/health-diary-fe/outputs/report.html
