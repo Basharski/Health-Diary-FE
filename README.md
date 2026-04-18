@@ -207,6 +207,43 @@ Testitapaukset:
 
 **Havainnot:** CryptoLibrary käyttää elliptistä käyrä -kryptografiaa (EC). `variable_decryption=True` purkaa kaikki `crypt:`-etuliitteelliset Suite Variables -muuttujat automaattisesti ennen testejä. Yksityinen avain ja `.env`-tiedosto on lisätty `.gitignore`:en — ne eivät päädy GitHubiin.
 
+### Tehtävä 9 – Taustapalvelimen API-testit (RequestsLibrary)
+
+Tiedosto: [tests/api_tests.robot](tests/api_tests.robot)
+
+Testitapaukset:
+| Testitapaus | Kuvaus |
+|---|---|
+| GET /api/users Returns 200 | Varmistaa, että käyttäjälista palautetaan HTTP 200 -vastauksella |
+| GET /api/items Returns 200 | Varmistaa, että kohteiden lista palautetaan HTTP 200 -vastauksella |
+| POST /api/auth/login Returns 200 With Valid Credentials | Kirjautuu oikeilla tunnuksilla, tarkistaa 200-vastauksen ja JWT-tokenin palautuksen |
+| POST /api/auth/login Returns 401 With Invalid Credentials | Kirjautuu väärällä salasanalla, tarkistaa, että palvelin palauttaa 401 Unauthorized |
+
+**Toteutus:** Testit käyttävät `RequestsLibrary`-kirjastoa suoraan HTTP-pyyntöihin ilman selainta. `Suite Setup` luo session (`Create Session`) kerran koko suite-ajon ajaksi ja `Suite Teardown` sulkee sen. `Collections`-kirjasto mahdollistaa JSON-vastausten avainten tarkistamisen (`Dictionary Should Contain Key`).
+
+**Havainnot:** API-testit ovat selainautomaatiota nopeampia ja luotettavampia, koska ne eivät riipu käyttöliittymästä. Samalla ne testaavat palvelimen toimintaa suoraan HTTP-tasolla. `expected_status=401` -parametri estää kirjastopoikkeuksen tilanteessa, jossa odotettu tulos on virhekoodi.
+
+### Tehtävä 10 – Yhteenveto tehdyistä tehtävistä
+
+| Tehtävä | Testitiedosto | Tila |
+|---------|--------------|------|
+| Tehtävä 1 – Asennus | – | ✅ Työkalut asennettu (RF, Browser, Requests, Crypto) |
+| Tehtävä 2 – Kirjautumistesti | [login_tests.robot](tests/login_tests.robot) | ✅ 3 testitapausta, kaikki läpäisty |
+| Tehtävä 3 – Web form | [webform_tests.robot](tests/webform_tests.robot) | ✅ 6 testitapausta, kaikki läpäisty |
+| Tehtävä 4 – Päiväkirjamerkintä | [entry_tests.robot](tests/entry_tests.robot) | ✅ 4 testitapausta, kaikki läpäisty |
+| Tehtävä 5 – .env-kirjautuminen | [login_env_tests.robot](tests/login_env_tests.robot) | ✅ 2 testitapausta, kaikki läpäisty |
+| Tehtävä 6 – CryptoLibrary | [login_crypto_tests.robot](tests/login_crypto_tests.robot) | ✅ 2 testitapausta, kaikki läpäisty |
+| Tehtävä 7 – outputs/-kansio | `--outputdir outputs` -parametri | ✅ log.html, report.html, output.xml ohjattu outputs/-kansioon |
+| Tehtävä 8 – GitHub Pages | [outputs/README.md](outputs/README.md) | ✅ Testiraportit luettavissa github.io:ssa |
+| Tehtävä 9 – API-testit | [api_tests.robot](tests/api_tests.robot) | ✅ 4 testitapausta, kaikki läpäisty |
+| Tehtävä 10 – Dokumentointi | README.md (tämä tiedosto) | ✅ Kaikki tehtävät dokumentoitu havaintoineen |
+
+**Viimeisin testiajo:** 21 testitapausta, 21 läpäisty (0 epäonnistunut)
+
+**GitHub Pages -testitulokset:**
+- [report.html](https://basharski.github.io/Health-Diary-FE/outputs/report.html) – yhteenveto
+- [log.html](https://basharski.github.io/Health-Diary-FE/outputs/log.html) – yksityiskohtainen loki
+
 ### Testiprojektin rakenne
 
 ```
