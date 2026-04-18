@@ -5,6 +5,7 @@ Documentation       Tehtävä 4: Uuden päiväkirjamerkinnän luontitesti
 ...                 HUOM: Ennen testien ajamista käynnistä:
 ...                   1. Back-end:  node server.js  (port 3000)
 Library             RequestsLibrary
+Library             Collections
 Resource            ../resources/keywords.resource
 Variables           ../resources/variables.py
 
@@ -37,7 +38,9 @@ Uusi päiväkirjamerkintä luodaan onnistuneesti
     ${headers}=    Create Dictionary    Authorization=Bearer ${token}
     ${response}=    POST On Session    health_diary    /api/entries    json=${entry}    headers=${headers}
     Should Be Equal As Integers    ${response.status_code}    201
-    Dictionary Should Contain Key    ${response.json()}    entry_id
+    Dictionary Should Contain Key    ${response.json()}    entry
+    ${entry_data}=    Get From Dictionary    ${response.json()}    entry
+    Dictionary Should Contain Key    ${entry_data}    entry_id
 
 Merkinnät haetaan kirjautuneena käyttäjänä
     [Documentation]    Varmista, että GET /api/entries palauttaa kirjautuneen käyttäjän merkinnät.

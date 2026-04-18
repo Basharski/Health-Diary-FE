@@ -1,0 +1,245 @@
+{"level":30,"time":"2026-04-18T12:30:07.255Z","pid":17192,"hostname":"Bashar_koulu","msg":"Listening on 127.0.0.1:49851"}
+{"level":30,"time":"2026-04-18T12:30:07.684Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-04-18T12:30:07.891Z","pid":17192,"hostname":"Bashar_koulu","msg":"Adding browser to stack: chromium, version: 145.0.7632.6"}
+{"level":30,"time":"2026-04-18T12:30:07.892Z","pid":17192,"hostname":"Bashar_koulu","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-04-18T12:30:07.893Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-04-18T12:30:07.899Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:07.899Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:07.918Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=b6cd94bf-585d-455e-aedd-bb71f1947ef5 to 10000"}
+{"level":30,"time":"2026-04-18T12:30:07.919Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=b6cd94bf-585d-455e-aedd-bb71f1947ef5"}
+{"level":30,"time":"2026-04-18T12:30:08.097Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:08.097Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:08.336Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:08.353Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:08.354Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-username in page."}
+{"level":30,"time":"2026-04-18T12:30:09.172Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:09.176Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:09.176Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-password in page."}
+{"level":30,"time":"2026-04-18T12:30:10.143Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:10.148Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:10.148Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:10.178Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:11.687Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.690Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.692Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.693Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.694Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.696Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.697Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.699Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.701Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=b6cd94bf-585d-455e-aedd-bb71f1947ef5"}
+{"level":30,"time":"2026-04-18T12:30:11.701Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=e2549d93-0cd7-43c2-b20a-51ae9eecfddf"}
+{"level":30,"time":"2026-04-18T12:30:11.701Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:11.705Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:11.714Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=0a7c0f1a-270c-4b91-a545-29f9921a40c3 from context=b6cd94bf-585d-455e-aedd-bb71f1947ef5 page stack"}
+{"level":30,"time":"2026-04-18T12:30:11.722Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:11.726Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.726Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:11.732Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:11.733Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:11.737Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:11.737Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:11.751Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=dd84f1e8-b292-4d5d-8109-10beef6f993b to 10000"}
+{"level":30,"time":"2026-04-18T12:30:11.751Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=dd84f1e8-b292-4d5d-8109-10beef6f993b"}
+{"level":30,"time":"2026-04-18T12:30:11.893Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:11.893Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:12.072Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:12.091Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:12.091Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-username in page."}
+{"level":30,"time":"2026-04-18T12:30:12.900Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:12.904Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:12.904Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-password in page."}
+{"level":30,"time":"2026-04-18T12:30:13.890Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:13.894Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:13.894Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:13.915Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:15.424Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.427Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.429Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.430Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.432Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.433Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.435Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.436Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.437Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=dd84f1e8-b292-4d5d-8109-10beef6f993b"}
+{"level":30,"time":"2026-04-18T12:30:15.437Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=9ad4fa2b-50b5-418f-973b-911d480d7b68"}
+{"level":30,"time":"2026-04-18T12:30:15.437Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:15.440Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:15.447Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=3ffe3e39-866b-45ad-8126-e3a1ba8f73eb from context=dd84f1e8-b292-4d5d-8109-10beef6f993b page stack"}
+{"level":30,"time":"2026-04-18T12:30:15.456Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:15.464Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.464Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.473Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.474Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.477Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.477Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:15.481Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:15.481Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:15.486Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:15.486Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:15.494Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=54e4cb73-0ef2-482c-8a5f-f50717c7c257 to 10000"}
+{"level":30,"time":"2026-04-18T12:30:15.494Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=54e4cb73-0ef2-482c-8a5f-f50717c7c257"}
+{"level":30,"time":"2026-04-18T12:30:15.625Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:15.625Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:15.806Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:15.819Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:15.819Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-username in page."}
+{"level":30,"time":"2026-04-18T12:30:16.591Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:16.595Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:16.595Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-password in page."}
+{"level":30,"time":"2026-04-18T12:30:17.575Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:17.578Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:17.578Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:17.596Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:19.104Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.106Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.107Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.109Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.110Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.111Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.113Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.114Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.115Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=54e4cb73-0ef2-482c-8a5f-f50717c7c257"}
+{"level":30,"time":"2026-04-18T12:30:19.115Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=37b11546-0568-41f2-a08f-ffe3220ca250"}
+{"level":30,"time":"2026-04-18T12:30:19.115Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:19.118Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:19.125Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=f9b95813-a822-41c0-9c32-1ee7af912fbb from context=54e4cb73-0ef2-482c-8a5f-f50717c7c257 page stack"}
+{"level":30,"time":"2026-04-18T12:30:19.135Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:19.139Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.139Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:19.142Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:19.142Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:19.146Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:19.147Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:19.166Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=9043aaef-2917-4831-8715-c6ee4bc77eb7 to 10000"}
+{"level":30,"time":"2026-04-18T12:30:19.166Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=9043aaef-2917-4831-8715-c6ee4bc77eb7"}
+{"level":30,"time":"2026-04-18T12:30:19.305Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:19.305Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:19.451Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:19.471Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:19.471Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-username in page."}
+{"level":30,"time":"2026-04-18T12:30:20.277Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:20.280Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:20.280Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-password in page."}
+{"level":30,"time":"2026-04-18T12:30:21.998Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:22.001Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:22.001Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:22.019Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:23.527Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.528Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.530Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.531Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.532Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.533Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.534Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.535Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.537Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=9043aaef-2917-4831-8715-c6ee4bc77eb7"}
+{"level":30,"time":"2026-04-18T12:30:23.537Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=07a533d7-9744-40d5-9059-0b97807880c0"}
+{"level":30,"time":"2026-04-18T12:30:23.537Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:23.540Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:23.547Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=0bf01936-df75-4a10-aac4-32bf0a22b469 from context=9043aaef-2917-4831-8715-c6ee4bc77eb7 page stack"}
+{"level":30,"time":"2026-04-18T12:30:23.558Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:23.565Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.565Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.575Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.575Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.578Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.578Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:23.582Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:23.582Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:23.586Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:23.586Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:23.593Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=f6c9d19f-e41d-44e9-884a-ae7cf341bdff to 10000"}
+{"level":30,"time":"2026-04-18T12:30:23.593Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=f6c9d19f-e41d-44e9-884a-ae7cf341bdff"}
+{"level":30,"time":"2026-04-18T12:30:23.721Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:23.721Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:23.863Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:23.877Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:23.877Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-username in page."}
+{"level":30,"time":"2026-04-18T12:30:24.657Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:24.660Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:24.660Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-password in page."}
+{"level":30,"time":"2026-04-18T12:30:25.639Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:25.643Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:25.643Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:25.656Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:27.164Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.166Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.167Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.168Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.170Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.171Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.173Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.174Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.176Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=f6c9d19f-e41d-44e9-884a-ae7cf341bdff"}
+{"level":30,"time":"2026-04-18T12:30:27.176Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=8c187cf8-a290-46f3-9fc3-feae94bb984a"}
+{"level":30,"time":"2026-04-18T12:30:27.176Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:27.179Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:27.185Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=d4d25455-12eb-4e9a-bf30-5250e1b73391 from context=f6c9d19f-e41d-44e9-884a-ae7cf341bdff page stack"}
+{"level":30,"time":"2026-04-18T12:30:27.196Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:27.200Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.200Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:27.203Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:27.204Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:27.207Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:27.207Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:27.228Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=2cd4882a-ba6b-4a75-afed-c0ef0a46d74c to 10000"}
+{"level":30,"time":"2026-04-18T12:30:27.228Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=2cd4882a-ba6b-4a75-afed-c0ef0a46d74c"}
+{"level":30,"time":"2026-04-18T12:30:27.379Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:27.379Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:27.536Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:27.556Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:27.556Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-username in page."}
+{"level":30,"time":"2026-04-18T12:30:28.341Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:28.344Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:28.344Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-password in page."}
+{"level":30,"time":"2026-04-18T12:30:29.747Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method typeText"}
+{"level":30,"time":"2026-04-18T12:30:29.751Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:29.751Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:29.768Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:31.276Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.277Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.279Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.280Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.281Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.282Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.284Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.285Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.286Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=2cd4882a-ba6b-4a75-afed-c0ef0a46d74c"}
+{"level":30,"time":"2026-04-18T12:30:31.286Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=d636cd07-69aa-48b1-9133-ecd5deff9b0f"}
+{"level":30,"time":"2026-04-18T12:30:31.286Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:31.288Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:31.294Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=cb9aa50a-09cf-4ef5-a44c-4158cd598b2b from context=2cd4882a-ba6b-4a75-afed-c0ef0a46d74c page stack"}
+{"level":30,"time":"2026-04-18T12:30:31.303Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:31.307Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.307Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.311Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:31.311Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2026-04-18T12:30:31.315Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:31.315Z","pid":17192,"hostname":"Bashar_koulu","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@edd15efa07bec36fb6c094e7c055d403\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee\"}"}
+{"level":30,"time":"2026-04-18T12:30:31.337Z","pid":17192,"hostname":"Bashar_koulu","msg":"Setting default timeout for context context=cde25621-13a8-4f13-969c-d20f7f58f2e2 to 10000"}
+{"level":30,"time":"2026-04-18T12:30:31.337Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=cde25621-13a8-4f13-969c-d20f7f58f2e2"}
+{"level":30,"time":"2026-04-18T12:30:31.468Z","pid":17192,"hostname":"Bashar_koulu","msg":"Video path: undefined"}
+{"level":30,"time":"2026-04-18T12:30:31.468Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:31.624Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method newPage"}
+{"level":30,"time":"2026-04-18T12:30:31.627Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method click"}
+{"level":30,"time":"2026-04-18T12:30:31.628Z","pid":17192,"hostname":"Bashar_koulu","msg":"Strict mode is enabled, find Locator with id=login-submit in page."}
+{"level":30,"time":"2026-04-18T12:30:31.675Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method click"}
+{"level":30,"time":"2026-04-18T12:30:31.685Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.688Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.689Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.691Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.693Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.695Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.697Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.699Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.701Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active context: context=cde25621-13a8-4f13-969c-d20f7f58f2e2"}
+{"level":30,"time":"2026-04-18T12:30:31.701Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changing current active page: page=b8eeb5bc-5719-4a13-bdac-c06e43457a51"}
+{"level":30,"time":"2026-04-18T12:30:31.701Z","pid":17192,"hostname":"Bashar_koulu","msg":"Changed active page"}
+{"level":30,"time":"2026-04-18T12:30:31.704Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:31.711Z","pid":17192,"hostname":"Bashar_koulu","msg":"Removed page=bffe5ea8-d21e-48fa-b760-00aae3f112bd from context=cde25621-13a8-4f13-969c-d20f7f58f2e2 page stack"}
+{"level":30,"time":"2026-04-18T12:30:31.719Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeContext"}
+{"level":30,"time":"2026-04-18T12:30:31.725Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:31.725Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-04-18T12:30:40.141Z","pid":17192,"hostname":"Bashar_koulu","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-04-18T12:30:40.278Z","pid":17192,"hostname":"Bashar_koulu","msg":"End of node method closeAllBrowsers"}

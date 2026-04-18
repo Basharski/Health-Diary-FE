@@ -1,71 +1,594 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-03-29T16:32:35.871226" rpa="false" schemaversion="5">
-<suite id="s1" name="Login Tests &amp; Webform Tests">
-<suite id="s1-s1" name="Login Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\login_tests.robot">
-<test id="s1-s1-t1" name="Onnistunut kirjautuminen ohjaa entries-sivulle" line="20">
+<robot generator="Robot 7.4.2 (Python 3.14.3 on win32)" generated="2026-04-18T15:30:05.179564" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests">
+<suite id="s1-s1" name="Api Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\api_tests.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2026-04-18T15:30:05.408300" level="INFO">Creating Session using : alias=health_diary, url=http://127.0.0.1:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>health_diary</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=${False}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-04-18T15:30:05.407947" elapsed="0.000613"/>
+</kw>
+<test id="s1-s1-t1" name="GET /api/users Returns 200" line="14">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.414383" level="INFO">GET Request : url=http://127.0.0.1:3000/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-04-18T15:30:05.414551" level="INFO">GET Response : url=http://127.0.0.1:3000/api/users 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '183', 'ETag': 'W/"b7-J7qadnQgyGKMCphiPcKSXs6TdgU"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body=[{"id":1,"username":"johndoe","email":"johndoe@example.com"},{"id":2,"username":"janedoe","email":"janedoe@example.com"},{"id":3,"username":"bobsmith","email":"bobsmith@example.com"}] 
+ </msg>
+<msg time="2026-04-18T15:30:05.414694" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/users</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.409211" elapsed="0.005522"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.415802" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.415101" elapsed="0.000764"/>
+</kw>
+<doc>Verify that the users endpoint returns HTTP 200</doc>
+<status status="PASS" start="2026-04-18T15:30:05.408712" elapsed="0.007374"/>
+</test>
+<test id="s1-s1-t2" name="GET /api/items Returns 200" line="19">
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.419142" level="INFO">GET Request : url=http://127.0.0.1:3000/api/items 
+ path_url=/api/items 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-04-18T15:30:05.419219" level="INFO">GET Response : url=http://127.0.0.1:3000/api/items 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '50', 'ETag': 'W/"32-jIU6dVlFy+Qxv4tuYNUnug0aWkQ"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body=[{"id":1,"name":"Apple"},{"id":2,"name":"Banana"}] 
+ </msg>
+<msg time="2026-04-18T15:30:05.419330" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/items</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.416979" elapsed="0.002373"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.420205" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.419604" elapsed="0.000658"/>
+</kw>
+<doc>Verify that the items endpoint returns HTTP 200</doc>
+<status status="PASS" start="2026-04-18T15:30:05.416521" elapsed="0.003937"/>
+</test>
+<test id="s1-s1-t3" name="POST /api/auth/login Returns 200 With Valid Credentials" line="24">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.422023" level="INFO">${body} = {'username': 'johndoe', 'password': 'password1'}</msg>
+<var>${body}</var>
+<arg>username=johndoe</arg>
+<arg>password=password1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.421450" elapsed="0.000634"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.500212" level="INFO">POST Request : url=http://127.0.0.1:3000/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johndoe", "password": "password1"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.500290" level="INFO">POST Response : url=http://127.0.0.1:3000/api/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '320', 'ETag': 'W/"140-uaxtuMtAbkoDw5AWSPaK5yirlT4"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Login successful!","user":{"id":1,"username":"johndoe","email":"johndoe@example.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg7vJT8OtOM-Y"} 
+ </msg>
+<msg time="2026-04-18T15:30:05.500406" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/auth/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.422277" elapsed="0.078152"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.501320" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.500699" elapsed="0.000673"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>token</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.501590" elapsed="0.000408"/>
+</kw>
+<doc>Verify that login returns HTTP 200 with valid credentials</doc>
+<status status="PASS" start="2026-04-18T15:30:05.420889" elapsed="0.081313"/>
+</test>
+<test id="s1-s1-t4" name="POST /api/auth/login Returns 401 With Invalid Credentials" line="31">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.503452" level="INFO">${body} = {'username': 'johndoe', 'password': 'wrongpassword'}</msg>
+<var>${body}</var>
+<arg>username=johndoe</arg>
+<arg>password=wrongpassword</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.503119" elapsed="0.000358"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.583057" level="INFO">POST Request : url=http://127.0.0.1:3000/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '52', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johndoe", "password": "wrongpassword"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.583171" level="INFO">POST Response : url=http://127.0.0.1:3000/api/auth/login 
+ status=401, reason=Unauthorized 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '106', 'ETag': 'W/"6a-MwgnieeiUkp8hFLergZzFtVsXDI"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Invalid username or password","error":{"message":"Invalid username or password","status":401}} 
+ </msg>
+<msg time="2026-04-18T15:30:05.583291" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/auth/login</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=401</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.503699" elapsed="0.079622"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.584219" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>401</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.583594" elapsed="0.000675"/>
+</kw>
+<doc>Verify that login returns HTTP 401 with wrong credentials</doc>
+<status status="PASS" start="2026-04-18T15:30:05.502646" elapsed="0.081805"/>
+</test>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2026-04-18T15:30:05.585147" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2026-04-18T15:30:05.585079" elapsed="0.000134"/>
+</kw>
+<doc>Health Diary API Test Suite
+Tests the REST API endpoints of the Health Diary back-end.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.212071" elapsed="0.373171"/>
+</suite>
+<suite id="s1-s2" name="Entry Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\entry_tests.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2026-04-18T15:30:05.590166" level="INFO">Creating Session using : alias=health_diary, url=http://127.0.0.1:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>health_diary</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=${False}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-04-18T15:30:05.589954" elapsed="0.000360"/>
+</kw>
+<test id="s1-s2-t1" name="Kirjautuminen onnistuu ja palauttaa tokenin" line="22">
+<kw name="Login And Get Token" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.591504" level="INFO">${body} = {'username': 'johndoe', 'password': 'password1'}</msg>
+<var>${body}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.591181" elapsed="0.000347"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.670801" level="INFO">POST Request : url=http://127.0.0.1:3000/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johndoe", "password": "password1"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.670902" level="INFO">POST Response : url=http://127.0.0.1:3000/api/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '320', 'ETag': 'W/"140-uaxtuMtAbkoDw5AWSPaK5yirlT4"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Login successful!","user":{"id":1,"username":"johndoe","email":"johndoe@example.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg7vJT8OtOM-Y"} 
+ </msg>
+<msg time="2026-04-18T15:30:05.671045" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/auth/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.591613" elapsed="0.079460"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.671783" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.671226" elapsed="0.000642"/>
+</kw>
+<return>
+<value>${response.json()}[token]</value>
+<status status="PASS" start="2026-04-18T15:30:05.671927" elapsed="0.000052"/>
+</return>
+<msg time="2026-04-18T15:30:05.672370" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg...</msg>
+<var>${token}</var>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<doc>Log in with given credentials and return the JWT token</doc>
+<status status="PASS" start="2026-04-18T15:30:05.590907" elapsed="0.081487"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.673046" level="INFO">Length is 211.</msg>
+<arg>${token}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.672627" elapsed="0.000466"/>
+</kw>
+<doc>Varmista, että kirjautuminen palauttaa JWT-tokenin,
+jota käytetään suojattujen reittien kutsuihin.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.590380" elapsed="0.082906"/>
+</test>
+<test id="s1-s2-t2" name="Uusi päiväkirjamerkintä luodaan onnistuneesti" line="28">
+<kw name="Login And Get Token" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.675504" level="INFO">${body} = {'username': 'johndoe', 'password': 'password1'}</msg>
+<var>${body}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.675016" elapsed="0.000515"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.755038" level="INFO">POST Request : url=http://127.0.0.1:3000/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johndoe", "password": "password1"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.755134" level="INFO">POST Response : url=http://127.0.0.1:3000/api/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '320', 'ETag': 'W/"140-uaxtuMtAbkoDw5AWSPaK5yirlT4"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Login successful!","user":{"id":1,"username":"johndoe","email":"johndoe@example.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg7vJT8OtOM-Y"} 
+ </msg>
+<msg time="2026-04-18T15:30:05.755273" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/auth/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.675631" elapsed="0.079704"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.756207" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.755514" elapsed="0.000754"/>
+</kw>
+<return>
+<value>${response.json()}[token]</value>
+<status status="PASS" start="2026-04-18T15:30:05.756333" elapsed="0.000055"/>
+</return>
+<msg time="2026-04-18T15:30:05.756914" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg...</msg>
+<var>${token}</var>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<doc>Log in with given credentials and return the JWT token</doc>
+<status status="PASS" start="2026-04-18T15:30:05.674543" elapsed="0.082401"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.758125" level="INFO">${entry} = {'entry_date': '2026-04-05', 'mood': 'Hyvä', 'weight': 72.5, 'sleep_hours': 8, 'notes': 'Testiautomaatiolla luotu merkintä'}</msg>
+<var>${entry}</var>
+<arg>entry_date=2026-04-05</arg>
+<arg>mood=Hyvä</arg>
+<arg>weight=${72.5}</arg>
+<arg>sleep_hours=${8}</arg>
+<arg>notes=Testiautomaatiolla luotu merkintä</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.757188" elapsed="0.000965"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.758619" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5h...</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.758346" elapsed="0.000296"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.761644" level="INFO">POST Request : url=http://127.0.0.1:3000/api/entries 
+ path_url=/api/entries 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg7vJT8OtOM-Y', 'Content-Length': '134', 'Content-Type': 'application/json'} 
+ body=b'{"entry_date": "2026-04-05", "mood": "Hyv\\u00e4", "weight": 72.5, "sleep_hours": 8, "notes": "Testiautomaatiolla luotu merkint\\u00e4"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.761758" level="INFO">POST Response : url=http://127.0.0.1:3000/api/entries 
+ status=201, reason=Created 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '177', 'ETag': 'W/"b1-WkSS6th1B8E9NMvH7u1ZBeyK1hQ"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Entry created","entry":{"entry_id":7,"userId":1,"entry_date":"2026-04-05","mood":"Hyvä","weight":72.5,"sleep_hours":8,"notes":"Testiautomaatiolla luotu merkintä"}} 
+ </msg>
+<msg time="2026-04-18T15:30:05.761904" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/entries</arg>
+<arg>json=${entry}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.758823" elapsed="0.003106"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.763014" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>201</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.762215" elapsed="0.000864"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>entry</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.763336" elapsed="0.000500"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2026-04-18T15:30:05.764511" level="INFO">${entry_data} = {'entry_id': 7, 'userId': 1, 'entry_date': '2026-04-05', 'mood': 'Hyvä', 'weight': 72.5, 'sleep_hours': 8, 'notes': 'Testiautomaatiolla luotu merkintä'}</msg>
+<var>${entry_data}</var>
+<arg>${response.json()}</arg>
+<arg>entry</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.764070" elapsed="0.000466"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${entry_data}</arg>
+<arg>entry_id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.764752" elapsed="0.000196"/>
+</kw>
+<doc>Kirjaudu sisään, luo uusi diary entry POST /api/entries -kutsulla
+ja varmista, että vastaus sisältää luodun merkinnän tiedot.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.673708" elapsed="0.091435"/>
+</test>
+<test id="s1-s2-t3" name="Merkinnät haetaan kirjautuneena käyttäjänä" line="45">
+<kw name="Login And Get Token" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.766952" level="INFO">${body} = {'username': 'johndoe', 'password': 'password1'}</msg>
+<var>${body}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.766459" elapsed="0.000530"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.846358" level="INFO">POST Request : url=http://127.0.0.1:3000/api/auth/login 
+ path_url=/api/auth/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "johndoe", "password": "password1"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.846436" level="INFO">POST Response : url=http://127.0.0.1:3000/api/auth/login 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '320', 'ETag': 'W/"140-uaxtuMtAbkoDw5AWSPaK5yirlT4"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Login successful!","user":{"id":1,"username":"johndoe","email":"johndoe@example.com"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg7vJT8OtOM-Y"} 
+ </msg>
+<msg time="2026-04-18T15:30:05.846547" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/auth/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.767116" elapsed="0.079453"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.847259" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.846700" elapsed="0.000631"/>
+</kw>
+<return>
+<value>${response.json()}[token]</value>
+<status status="PASS" start="2026-04-18T15:30:05.847377" elapsed="0.000033"/>
+</return>
+<msg time="2026-04-18T15:30:05.847763" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg...</msg>
+<var>${token}</var>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<doc>Log in with given credentials and return the JWT token</doc>
+<status status="PASS" start="2026-04-18T15:30:05.766039" elapsed="0.081747"/>
+</kw>
+<kw name="Authenticated GET" owner="keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.848721" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5h...</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.848377" elapsed="0.000373"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.850604" level="INFO">GET Request : url=http://127.0.0.1:3000/api/entries 
+ path_url=/api/entries 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiam9obmRvZSIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTc3NjUxNTQwNSwiZXhwIjoxNzc2NjAxODA1fQ.CUky5hTh_JP_nbxT-z0wi4kdS1-keGxg7vJT8OtOM-Y'} 
+ body=None 
+ </msg>
+<msg time="2026-04-18T15:30:05.850656" level="INFO">GET Response : url=http://127.0.0.1:3000/api/entries 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '679', 'ETag': 'W/"2a7-89CgVifJYsj52w0IFc0bEiLY4uA"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body=[{"entry_id":1,"userId":1,"entry_date":"2024-02-01","mood":"Happy","weight":70.5,"sleep_hours":8,"notes":"Felt great today!"},{"entry_id":2,"userId":1,"entry_date":"2024-02-02","mood":"Tired","weight":70.2,"sleep_hours":5,"notes":"Did not sleep well."},{"entry_id":5,"userId":1,"entry_date":"2026-04-05","mood":"Hyvä","weight":72.5,"sleep_hours":8,"notes":"Testiautomaatiolla luotu merkintä"},{"entry_id":6,"userId":1,"entry_date":"2026-04-05","mood":"Hyvä","weight":72.5,"sleep_hours":8,"notes":"Testiautomaatiolla luotu merkintä"},{"entry_id":7,"userId":1,"entry_date":"2026-04-05","mood":"Hyvä","weight":72.5,"sleep_hours":8,"notes":"Testiautomaatiolla luotu merkintä"}] 
+ </msg>
+<msg time="2026-04-18T15:30:05.850732" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>${path}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.848846" elapsed="0.001906"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2026-04-18T15:30:05.850797" elapsed="0.000026"/>
+</return>
+<msg time="2026-04-18T15:30:05.850932" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>/api/entries</arg>
+<arg>${token}</arg>
+<doc>Perform a GET request with a Bearer token</doc>
+<status status="PASS" start="2026-04-18T15:30:05.848081" elapsed="0.002870"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.851699" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.851138" elapsed="0.000620"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.852442" level="INFO">${entries} = [{'entry_id': 1, 'userId': 1, 'entry_date': '2024-02-01', 'mood': 'Happy', 'weight': 70.5, 'sleep_hours': 8, 'notes': 'Felt great today!'}, {'entry_id': 2, 'userId': 1, 'entry_date': '2024-02-02', 'mo...</msg>
+<var>${entries}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.851942" elapsed="0.000560"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.852878" level="INFO">Length is 5.</msg>
+<arg>${entries}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.852650" elapsed="0.000263"/>
+</kw>
+<doc>Varmista, että GET /api/entries palauttaa kirjautuneen käyttäjän merkinnät.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.765506" elapsed="0.087568"/>
+</test>
+<test id="s1-s2-t4" name="Merkinnän luominen ilman tokenia palauttaa 401" line="53">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.854744" level="INFO">${entry} = {'entry_date': '2026-04-05', 'mood': 'Testi', 'weight': 70, 'sleep_hours': 7, 'notes': 'Ei tokenilla yritetty'}</msg>
+<var>${entry}</var>
+<arg>entry_date=2026-04-05</arg>
+<arg>mood=Testi</arg>
+<arg>weight=${70}</arg>
+<arg>sleep_hours=${7}</arg>
+<arg>notes=Ei tokenilla yritetty</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.853839" elapsed="0.000937"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-04-18T15:30:05.856884" level="INFO">POST Request : url=http://127.0.0.1:3000/api/entries 
+ path_url=/api/entries 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '111', 'Content-Type': 'application/json'} 
+ body=b'{"entry_date": "2026-04-05", "mood": "Testi", "weight": 70, "sleep_hours": 7, "notes": "Ei tokenilla yritetty"}' 
+ </msg>
+<msg time="2026-04-18T15:30:05.856937" level="INFO">POST Response : url=http://127.0.0.1:3000/api/entries 
+ status=401, reason=Unauthorized 
+ headers={'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '76', 'ETag': 'W/"4c-xOMODjnT+UBbfbfUxpqGTOnJKW8"', 'Date': 'Sat, 18 Apr 2026 12:30:05 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Missing token","error":{"message":"Missing token","status":401}} 
+ </msg>
+<msg time="2026-04-18T15:30:05.857026" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>health_diary</arg>
+<arg>/api/entries</arg>
+<arg>json=${entry}</arg>
+<arg>expected_status=401</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.854970" elapsed="0.002079"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-04-18T15:30:05.857739" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>401</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.857235" elapsed="0.000550"/>
+</kw>
+<doc>Varmista, että uuden merkinnän luominen ilman autentikointia epäonnistuu.</doc>
+<status status="PASS" start="2026-04-18T15:30:05.853403" elapsed="0.004574"/>
+</test>
+<kw name="Delete All Sessions" owner="RequestsLibrary" type="TEARDOWN">
+<msg time="2026-04-18T15:30:05.858536" level="INFO">Deleting All Sessions</msg>
+<doc>Removes all the session objects</doc>
+<status status="PASS" start="2026-04-18T15:30:05.858470" elapsed="0.000127"/>
+</kw>
+<doc>Tehtävä 4: Uuden päiväkirjamerkinnän luontitesti
+Testaa diary entry -luomista REST API:n kautta kirjautumisen jälkeen.
+
+HUOM: Ennen testien ajamista käynnistä:
+  1. Back-end:  node server.js  (port 3000)</doc>
+<status status="PASS" start="2026-04-18T15:30:05.585890" elapsed="0.272756"/>
+</suite>
+<suite id="s1-s3" name="Login Crypto Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\login_crypto_tests.robot">
+<test id="s1-s3-t1" name="Kirjautuminen onnistuu kryptatuilla tunnuksilla" line="29">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:36.106780" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\results\\browser\\traces\\temp\\4f155489-b1c1-4381-ba40-fd14f6264407"}</msg>
-<msg time="2026-03-29T16:32:36.131711" level="INFO">Starting Browser process C:\Users\Bashar\AppData\Roaming\Python\Python314\site-packages\Browser\wrapper\index.js using at 127.0.0.1:63966</msg>
-<msg time="2026-03-29T16:32:37.383883" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\results\\browser\\traces\\temp\\4f155489-b1c1-4381-ba40-fd14f6264407"}</msg>
+<msg time="2026-04-18T15:30:06.611958" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\outputs\\browser\\traces\\temp\\845304eb-f9d0-46e7-bf6c-7ff1c8e3ba11"}</msg>
+<msg time="2026-04-18T15:30:06.639889" level="INFO">Starting Browser process C:\Users\Bashar\AppData\Roaming\Python\Python314\site-packages\Browser\wrapper\index.js using at 127.0.0.1:49851</msg>
+<msg time="2026-04-18T15:30:07.894936" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\outputs\\browser\\traces\\temp\\845304eb-f9d0-46e7-bf6c-7ff1c8e3ba11"}</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:36.106155" elapsed="1.278022"/>
+<status status="PASS" start="2026-04-18T15:30:06.611142" elapsed="1.284455"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:37.733341" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
-<msg time="2026-03-29T16:32:37.733456" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-04-18T15:30:08.338712" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:08.338925" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${LOGIN_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:37.384721" elapsed="0.348956"/>
+<status status="PASS" start="2026-04-18T15:30:07.896158" elapsed="0.443096"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:37.743725" level="INFO">Title: 'My Health Diary - Login'</msg>
+<msg time="2026-04-18T15:30:08.350312" level="INFO">Title: 'My Health Diary - Login'</msg>
 <arg>==</arg>
 <arg>My Health Diary - Login</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:37.734159" elapsed="0.009723"/>
+<status status="PASS" start="2026-04-18T15:30:08.339924" elapsed="0.010600"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:37.744942" level="INFO">Types the text 'johndoe' in the given field.</msg>
+<msg time="2026-04-18T15:30:08.352062" level="INFO">Types the text '***' in the given field.</msg>
 <arg>id=login-username</arg>
-<arg>${VALID_USER}</arg>
+<arg>${CRYPTO_USER}</arg>
 <arg>delay=0.1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:37.744283" elapsed="0.828357"/>
+<status status="PASS" start="2026-04-18T15:30:08.350942" elapsed="0.823612"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:38.573777" level="INFO">Types the text 'password1' in the given field.</msg>
+<msg time="2026-04-18T15:30:09.175881" level="INFO">Types the text '***' in the given field.</msg>
 <arg>id=login-password</arg>
-<arg>${VALID_PASS}</arg>
+<arg>${CRYPTO_PASS}</arg>
 <arg>delay=0.1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:38.573008" elapsed="0.984799"/>
+<status status="PASS" start="2026-04-18T15:30:09.174945" elapsed="0.970767"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-03-29T16:32:39.558893" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<msg time="2026-04-18T15:30:10.146997" level="INFO">Clicks the element 'id=login-submit'.</msg>
 <arg>id=login-submit</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:39.558237" elapsed="0.022940"/>
+<status status="PASS" start="2026-04-18T15:30:10.146174" elapsed="0.033504"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-03-29T16:32:41.082621" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<msg time="2026-04-18T15:30:11.681015" level="INFO">Slept 1 second 500 milliseconds.</msg>
 <arg>1.5 s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-03-29T16:32:39.581701" elapsed="1.501110"/>
+<status status="PASS" start="2026-04-18T15:30:10.180125" elapsed="1.501074"/>
 </kw>
 <kw name="Get Url" owner="Browser">
 <arg>contains</arg>
@@ -74,78 +597,260 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the current URL.</doc>
-<status status="PASS" start="2026-03-29T16:32:41.083229" elapsed="0.003131"/>
+<status status="PASS" start="2026-04-18T15:30:11.681581" elapsed="0.002942"/>
 </kw>
-<msg time="2026-03-29T16:32:41.097625" level="INFO">Switching context to context=d8704b59-dc8e-472e-8d31-80ae825e9ef6 in CURRENT</msg>
-<msg time="2026-03-29T16:32:41.104281" level="INFO">Successfully changed active context: context=d8704b59-dc8e-472e-8d31-80ae825e9ef6</msg>
-<msg time="2026-03-29T16:32:41.121410" level="INFO">Successfully closed Context</msg>
-<doc>Kirjaudu oikeilla tunnuksilla ja varmista, että sivu ohjautuu entries-sivulle.</doc>
-<status status="PASS" start="2026-03-29T16:32:36.105278" elapsed="4.981368"/>
+<msg time="2026-04-18T15:30:11.697421" level="INFO">Switching context to context=b6cd94bf-585d-455e-aedd-bb71f1947ef5 in CURRENT</msg>
+<msg time="2026-04-18T15:30:11.704965" level="INFO">Successfully changed active context: context=b6cd94bf-585d-455e-aedd-bb71f1947ef5</msg>
+<msg time="2026-04-18T15:30:11.724190" level="INFO">Successfully closed Context</msg>
+<doc>Kirjaudu CryptoLibraryllä kryptatuilla tunnuksilla.
+CryptoLibrary purkaa automaattisesti johndoe ja password1
+ennen testiä, koska variable_decryption=True.</doc>
+<status status="PASS" start="2026-04-18T15:30:06.608563" elapsed="5.076262"/>
 </test>
-<test id="s1-s1-t2" name="Epäonnistunut kirjautuminen pysyy kirjautumissivulla" line="31">
+<test id="s1-s3-t2" name="Kryptattu salasana ei näy lokeissa" line="42">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:41.126731" level="INFO">Switching browser to browser=5d387d39-6535-4856-85ee-c1f09c3df249</msg>
-<msg time="2026-03-29T16:32:41.129791" level="INFO">Successfully changed active browser: browser=5d387d39-6535-4856-85ee-c1f09c3df249</msg>
-<msg time="2026-03-29T16:32:41.129920" level="INFO">Reusing existing browser with id: browser=5d387d39-6535-4856-85ee-c1f09c3df249</msg>
+<msg time="2026-04-18T15:30:11.731745" level="INFO">Switching browser to browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:11.734537" level="INFO">Successfully changed active browser: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:11.734780" level="INFO">Reusing existing browser with id: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:41.125828" elapsed="0.004203"/>
+<status status="PASS" start="2026-04-18T15:30:11.730770" elapsed="0.004147"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:41.422986" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
-<msg time="2026-03-29T16:32:41.423129" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-04-18T15:30:12.074790" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:12.075076" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${LOGIN_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:41.130528" elapsed="0.292832"/>
+<status status="PASS" start="2026-04-18T15:30:11.735369" elapsed="0.340108"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:41.431361" level="INFO">Title: 'My Health Diary - Login'</msg>
+<msg time="2026-04-18T15:30:12.087872" level="INFO">Title: 'My Health Diary - Login'</msg>
 <arg>==</arg>
 <arg>My Health Diary - Login</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:41.423825" elapsed="0.007688"/>
+<status status="PASS" start="2026-04-18T15:30:12.079235" elapsed="0.008898"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:41.433052" level="INFO">Types the text 'johndoe' in the given field.</msg>
+<msg time="2026-04-18T15:30:12.089976" level="INFO">Types the text '***' in the given field.</msg>
 <arg>id=login-username</arg>
-<arg>${VALID_USER}</arg>
+<arg>${CRYPTO_USER}</arg>
 <arg>delay=0.1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:41.431990" elapsed="0.793700"/>
+<status status="PASS" start="2026-04-18T15:30:12.088893" elapsed="0.813243"/>
 </kw>
-<kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:42.226946" level="INFO">Types the text 'wrongpassword' in the given field.</msg>
+<kw name="Type Secret" owner="Browser">
 <arg>id=login-password</arg>
-<arg>${INVALID_PASS}</arg>
+<arg>$CRYPTO_PASS</arg>
 <arg>delay=0.1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
-<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:42.226098" elapsed="1.412449"/>
+<doc>Types the given secret from ``variable_name`` into the text field
+found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:12.902545" elapsed="0.989415"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-03-29T16:32:43.639380" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<msg time="2026-04-18T15:30:13.893337" level="INFO">Clicks the element 'id=login-submit'.</msg>
 <arg>id=login-submit</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:43.638869" elapsed="0.019988"/>
+<status status="PASS" start="2026-04-18T15:30:13.892489" elapsed="0.024693"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-03-29T16:32:45.159871" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<msg time="2026-04-18T15:30:15.418413" level="INFO">Slept 1 second 500 milliseconds.</msg>
 <arg>1.5 s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-03-29T16:32:43.659190" elapsed="1.500830"/>
+<status status="PASS" start="2026-04-18T15:30:13.917534" elapsed="1.501085"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>entries</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-04-18T15:30:15.419018" elapsed="0.003466"/>
+</kw>
+<msg time="2026-04-18T15:30:15.434765" level="INFO">Switching context to context=dd84f1e8-b292-4d5d-8109-10beef6f993b in CURRENT</msg>
+<msg time="2026-04-18T15:30:15.440579" level="INFO">Successfully changed active context: context=dd84f1e8-b292-4d5d-8109-10beef6f993b</msg>
+<msg time="2026-04-18T15:30:15.458458" level="INFO">Successfully closed Context</msg>
+<doc>Varmista kirjautuminen ja demonstroi että CryptoLibrary
+piilottaa salasanan lokeista (variable_decryption=True purkaa automaattisesti).
+Type Secret käyttää $-notaatiota, jolloin arvo maskautuu ***-merkeillä lokeissa.</doc>
+<status status="PASS" start="2026-04-18T15:30:11.724900" elapsed="3.697951"/>
+</test>
+<doc>Tehtävä 6: Kirjautumistesti CryptoLibraryllä kryptatuilla tunnuksilla
+Käyttäjätunnus ja salasana on kryptattu epäsymmetrisellä EC-kryptauksella.
+CryptoLibrary purkaa muuttujat automaattisesti (variable_decryption=True).
+
+HUOM: Ennen testien ajamista:
+  1. Aseta yksityisen avaimen salasana ympäristömuuttujaksi:
+     PowerShell: $env:private_key_password="testkey123"
+  2. Avainpari sijaitsee: resources/private_key.json
+  3. Back-end:  node server.js  (port 3000)
+  4. Front-end: npm run dev     (port 5173)
+
+Kryptaus tehty komennolla:
+  python -c "from CryptoLibrary.utils import CryptoUtility; ..."
+Julkinen avain: resources/public_key.key</doc>
+<status status="PASS" start="2026-04-18T15:30:05.859364" elapsed="9.600364"/>
+</suite>
+<suite id="s1-s4" name="Login Env Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\login_env_tests.robot">
+<test id="s1-s4-t1" name="Kirjautuminen onnistuu .env-tiedoston tunnuksilla" line="17">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-04-18T15:30:15.480102" level="INFO">Switching browser to browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:15.482772" level="INFO">Successfully changed active browser: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:15.482941" level="INFO">Reusing existing browser with id: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-04-18T15:30:15.479310" elapsed="0.003702"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-04-18T15:30:15.808005" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:15.808122" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-04-18T15:30:15.483624" elapsed="0.324733"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-04-18T15:30:15.816434" level="INFO">Title: 'My Health Diary - Login'</msg>
+<arg>==</arg>
+<arg>My Health Diary - Login</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-04-18T15:30:15.808809" elapsed="0.007806"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:15.818182" level="INFO">Types the text 'johndoe' in the given field.</msg>
+<arg>id=login-username</arg>
+<arg>${TEST_USERNAME}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:15.817039" elapsed="0.776284"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:16.594521" level="INFO">Types the text 'password1' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${TEST_PASSWORD}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:16.593673" elapsed="0.983451"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-04-18T15:30:17.578177" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<arg>id=login-submit</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:17.577475" elapsed="0.020298"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-18T15:30:19.099244" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-18T15:30:17.598175" elapsed="1.501246"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>entries</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-04-18T15:30:19.099792" elapsed="0.002595"/>
+</kw>
+<msg time="2026-04-18T15:30:19.112887" level="INFO">Switching context to context=54e4cb73-0ef2-482c-8a5f-f50717c7c257 in CURRENT</msg>
+<msg time="2026-04-18T15:30:19.118671" level="INFO">Successfully changed active context: context=54e4cb73-0ef2-482c-8a5f-f50717c7c257</msg>
+<msg time="2026-04-18T15:30:19.136692" level="INFO">Successfully closed Context</msg>
+<doc>Kirjaudu sisään .env-tiedostosta python-dotenvilla ladatuilla tunnuksilla.
+TEST_USERNAME ja TEST_PASSWORD haetaan automaattisesti .env-tiedostosta.</doc>
+<status status="PASS" start="2026-04-18T15:30:15.475565" elapsed="3.627122"/>
+</test>
+<test id="s1-s4-t2" name="Kirjautuminen epäonnistuu väärällä .env-salasanalla" line="29">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-04-18T15:30:19.141949" level="INFO">Switching browser to browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:19.144101" level="INFO">Successfully changed active browser: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:19.144298" level="INFO">Reusing existing browser with id: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-04-18T15:30:19.141122" elapsed="0.003274"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-04-18T15:30:19.452575" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:19.452843" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-04-18T15:30:19.144831" elapsed="0.308608"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-04-18T15:30:19.466251" level="INFO">Title: 'My Health Diary - Login'</msg>
+<arg>==</arg>
+<arg>My Health Diary - Login</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-04-18T15:30:19.456524" elapsed="0.009888"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:19.469435" level="INFO">Types the text 'johndoe' in the given field.</msg>
+<arg>id=login-username</arg>
+<arg>${TEST_USERNAME}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:19.467960" elapsed="0.811069"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:20.280290" level="INFO">Types the text 'vaarasalasana123' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>vaarasalasana123</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:20.279470" elapsed="1.720120"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-04-18T15:30:22.000767" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<arg>id=login-submit</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:22.000006" elapsed="0.020813"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-18T15:30:23.522270" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-18T15:30:22.021210" elapsed="1.501208"/>
 </kw>
 <kw name="Get Url" owner="Browser">
 <arg>contains</arg>
@@ -154,63 +859,237 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the current URL.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.160489" elapsed="0.002798"/>
+<status status="PASS" start="2026-04-18T15:30:23.522751" elapsed="0.002774"/>
 </kw>
-<msg time="2026-03-29T16:32:45.173648" level="INFO">Switching context to context=1bad9db9-c0a4-4719-904a-91495a4034ab in CURRENT</msg>
-<msg time="2026-03-29T16:32:45.178621" level="INFO">Successfully changed active context: context=1bad9db9-c0a4-4719-904a-91495a4034ab</msg>
-<msg time="2026-03-29T16:32:45.192072" level="INFO">Successfully closed Context</msg>
-<doc>Kirjaudu väärällä salasanalla ja varmista, että sivu ei ohjaudu pois.</doc>
-<status status="PASS" start="2026-03-29T16:32:41.122323" elapsed="4.041212"/>
+<msg time="2026-04-18T15:30:23.534448" level="INFO">Switching context to context=9043aaef-2917-4831-8715-c6ee4bc77eb7 in CURRENT</msg>
+<msg time="2026-04-18T15:30:23.539666" level="INFO">Successfully changed active context: context=9043aaef-2917-4831-8715-c6ee4bc77eb7</msg>
+<msg time="2026-04-18T15:30:23.559842" level="INFO">Successfully closed Context</msg>
+<doc>Varmista, että väärä salasana estää kirjautumisen.
+Käyttäjätunnus haetaan .env:stä, mutta salasana on selvästi väärä.</doc>
+<status status="PASS" start="2026-04-18T15:30:19.137476" elapsed="4.388342"/>
 </test>
-<test id="s1-s1-t3" name="Tyhjillä tunnuksilla ei voi kirjautua" line="42">
+<doc>Tehtävä 5: Kirjautumistesti .env-tiedostoon piilotettuilla tunnuksilla
+Käyttäjätunnus ja salasana ladataan .env-tiedostosta
+resources/variables.py:n kautta (python-dotenv).
+
+HUOM: Ennen testien ajamista:
+  1. Tarkista, että projektin juuressa on .env-tiedosto:
+     TEST_USERNAME=johndoe
+     TEST_PASSWORD=password1
+  2. Back-end:  node server.js  (port 3000)
+  3. Front-end: npm run dev     (port 5173)</doc>
+<status status="PASS" start="2026-04-18T15:30:15.467030" elapsed="8.094753"/>
+</suite>
+<suite id="s1-s5" name="Login Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\login_tests.robot">
+<test id="s1-s5-t1" name="Onnistunut kirjautuminen ohjaa entries-sivulle" line="20">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:45.196836" level="INFO">Switching browser to browser=5d387d39-6535-4856-85ee-c1f09c3df249</msg>
-<msg time="2026-03-29T16:32:45.198664" level="INFO">Successfully changed active browser: browser=5d387d39-6535-4856-85ee-c1f09c3df249</msg>
-<msg time="2026-03-29T16:32:45.198796" level="INFO">Reusing existing browser with id: browser=5d387d39-6535-4856-85ee-c1f09c3df249</msg>
+<msg time="2026-04-18T15:30:23.581522" level="INFO">Switching browser to browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:23.583645" level="INFO">Successfully changed active browser: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:23.583880" level="INFO">Reusing existing browser with id: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.196008" elapsed="0.002852"/>
+<status status="PASS" start="2026-04-18T15:30:23.580489" elapsed="0.003486"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:45.532714" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
-<msg time="2026-03-29T16:32:45.532841" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-04-18T15:30:23.865081" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:23.865197" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${LOGIN_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.199162" elapsed="0.333861"/>
+<status status="PASS" start="2026-04-18T15:30:23.584451" elapsed="0.281007"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-04-18T15:30:23.875038" level="INFO">Title: 'My Health Diary - Login'</msg>
+<arg>==</arg>
+<arg>My Health Diary - Login</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-04-18T15:30:23.866045" elapsed="0.009178"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:23.876803" level="INFO">Types the text 'johndoe' in the given field.</msg>
+<arg>id=login-username</arg>
+<arg>${VALID_USER}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:23.875678" elapsed="0.783130"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:24.660080" level="INFO">Types the text 'password1' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${VALID_PASS}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:24.659187" elapsed="0.982154"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-03-29T16:32:45.533935" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<msg time="2026-04-18T15:30:25.642494" level="INFO">Clicks the element 'id=login-submit'.</msg>
 <arg>id=login-submit</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.533381" elapsed="0.040363"/>
+<status status="PASS" start="2026-04-18T15:30:25.641725" elapsed="0.016142"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-18T15:30:27.159019" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-18T15:30:25.658249" elapsed="1.500929"/>
 </kw>
 <kw name="Get Url" owner="Browser">
-<msg time="2026-03-29T16:32:45.577668" level="INFO">${url} = http://localhost:5173/src/auth/login.html</msg>
+<arg>contains</arg>
+<arg>entries</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-04-18T15:30:27.159571" elapsed="0.002766"/>
+</kw>
+<msg time="2026-04-18T15:30:27.172503" level="INFO">Switching context to context=f6c9d19f-e41d-44e9-884a-ae7cf341bdff in CURRENT</msg>
+<msg time="2026-04-18T15:30:27.178821" level="INFO">Successfully changed active context: context=f6c9d19f-e41d-44e9-884a-ae7cf341bdff</msg>
+<msg time="2026-04-18T15:30:27.197855" level="INFO">Successfully closed Context</msg>
+<doc>Kirjaudu oikeilla tunnuksilla ja varmista, että sivu ohjautuu entries-sivulle.</doc>
+<status status="PASS" start="2026-04-18T15:30:23.576950" elapsed="3.585697"/>
+</test>
+<test id="s1-s5-t2" name="Epäonnistunut kirjautuminen pysyy kirjautumissivulla" line="31">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-04-18T15:30:27.202808" level="INFO">Switching browser to browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:27.205246" level="INFO">Successfully changed active browser: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:27.205433" level="INFO">Reusing existing browser with id: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-04-18T15:30:27.201881" elapsed="0.003638"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-04-18T15:30:27.538460" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:27.538604" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-04-18T15:30:27.205926" elapsed="0.332950"/>
+</kw>
+<kw name="Get Title" owner="Browser">
+<msg time="2026-04-18T15:30:27.550121" level="INFO">Title: 'My Health Diary - Login'</msg>
+<arg>==</arg>
+<arg>My Health Diary - Login</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2026-04-18T15:30:27.539569" elapsed="0.010828"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:27.552402" level="INFO">Types the text 'johndoe' in the given field.</msg>
+<arg>id=login-username</arg>
+<arg>${VALID_USER}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:27.551403" elapsed="0.791493"/>
+</kw>
+<kw name="Type Text" owner="Browser">
+<msg time="2026-04-18T15:30:28.344151" level="INFO">Types the text 'wrongpassword' in the given field.</msg>
+<arg>id=login-password</arg>
+<arg>${INVALID_PASS}</arg>
+<arg>delay=0.1 s</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:28.343307" elapsed="1.406040"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-04-18T15:30:29.750430" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<arg>id=login-submit</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:29.749731" elapsed="0.020694"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-04-18T15:30:31.271580" level="INFO">Slept 1 second 500 milliseconds.</msg>
+<arg>1.5 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-04-18T15:30:29.770796" elapsed="1.500919"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<arg>contains</arg>
+<arg>login</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-04-18T15:30:31.272116" elapsed="0.002292"/>
+</kw>
+<msg time="2026-04-18T15:30:31.283979" level="INFO">Switching context to context=2cd4882a-ba6b-4a75-afed-c0ef0a46d74c in CURRENT</msg>
+<msg time="2026-04-18T15:30:31.288530" level="INFO">Successfully changed active context: context=2cd4882a-ba6b-4a75-afed-c0ef0a46d74c</msg>
+<msg time="2026-04-18T15:30:31.305289" level="INFO">Successfully closed Context</msg>
+<doc>Kirjaudu väärällä salasanalla ja varmista, että sivu ei ohjaudu pois.</doc>
+<status status="PASS" start="2026-04-18T15:30:27.198682" elapsed="4.076018"/>
+</test>
+<test id="s1-s5-t3" name="Tyhjillä tunnuksilla ei voi kirjautua" line="42">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-04-18T15:30:31.310286" level="INFO">Switching browser to browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:31.312553" level="INFO">Successfully changed active browser: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<msg time="2026-04-18T15:30:31.312746" level="INFO">Reusing existing browser with id: browser=a7d4840e-8c7d-45c0-b2b4-7ec3c230ffee</msg>
+<arg>chromium</arg>
+<arg>headless=No</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-04-18T15:30:31.309318" elapsed="0.003526"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-04-18T15:30:31.625613" level="INFO">Successfully initialized new page object and opened url: http://localhost:5173/src/auth/login.html</msg>
+<msg time="2026-04-18T15:30:31.625719" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<arg>${LOGIN_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-04-18T15:30:31.313315" elapsed="0.312585"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-04-18T15:30:31.627142" level="INFO">Clicks the element 'id=login-submit'.</msg>
+<arg>id=login-submit</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-04-18T15:30:31.626318" elapsed="0.050661"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-04-18T15:30:31.680912" level="INFO">${url} = http://localhost:5173/src/auth/login.html</msg>
 <var>${url}</var>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the current URL.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.574090" elapsed="0.003626"/>
+<status status="PASS" start="2026-04-18T15:30:31.677339" elapsed="0.003650"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${url}</arg>
 <arg>login</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.577993" elapsed="0.000583"/>
+<status status="PASS" start="2026-04-18T15:30:31.681413" elapsed="0.000971"/>
 </kw>
-<msg time="2026-03-29T16:32:45.589452" level="INFO">Switching context to context=283f8c5f-3f27-462e-8e9a-61dfce1116a5 in CURRENT</msg>
-<msg time="2026-03-29T16:32:45.594914" level="INFO">Successfully changed active context: context=283f8c5f-3f27-462e-8e9a-61dfce1116a5</msg>
-<msg time="2026-03-29T16:32:45.607925" level="INFO">Successfully closed Context</msg>
+<msg time="2026-04-18T15:30:31.696865" level="INFO">Switching context to context=cde25621-13a8-4f13-969c-d20f7f58f2e2 in CURRENT</msg>
+<msg time="2026-04-18T15:30:31.704556" level="INFO">Successfully changed active context: context=cde25621-13a8-4f13-969c-d20f7f58f2e2</msg>
+<msg time="2026-04-18T15:30:31.721347" level="INFO">Successfully closed Context</msg>
 <doc>Varmista, että tyhjillä kentillä submit ei toimi (HTML5 required-validointi).</doc>
-<status status="PASS" start="2026-03-29T16:32:45.192998" elapsed="0.385763"/>
+<status status="PASS" start="2026-04-18T15:30:31.306106" elapsed="0.376569"/>
 </test>
 <doc>Tehtävä 2: Kirjautumistesti Health Diary -sovellukselle
 Testaa kirjautumislomakkeen toimintaa Browser Libraryn avulla.
@@ -218,52 +1097,52 @@ Testaa kirjautumislomakkeen toimintaa Browser Libraryn avulla.
 HUOM: Ennen testien ajamista käynnistä:
   1. Back-end:  node server.js  (port 3000)
   2. Front-end: npm run dev     (port 5173)</doc>
-<status status="PASS" start="2026-03-29T16:32:35.905701" elapsed="9.703146"/>
+<status status="PASS" start="2026-04-18T15:30:23.568031" elapsed="8.154312"/>
 </suite>
-<suite id="s1-s2" name="Webform Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\webform_tests.robot">
-<test id="s1-s2-t1" name="Dropdown Select - Valitaan vaihtoehto listasta" line="16">
+<suite id="s1-s6" name="Webform Tests" source="C:\Users\Bashar\OneDrive - Metropolia Ammattikorkeakoulu Oy\Desktop\WebDevCourse\my-vite-app\tests\webform_tests.robot">
+<test id="s1-s6-t1" name="Dropdown Select - Valitaan vaihtoehto listasta" line="16">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:45.675588" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\results\\browser\\traces\\temp\\805a58df-ca44-47b9-bb45-6480eb5a3f80"}</msg>
-<msg time="2026-03-29T16:32:45.702040" level="INFO">Starting Browser process C:\Users\Bashar\AppData\Roaming\Python\Python314\site-packages\Browser\wrapper\index.js using at 127.0.0.1:56942</msg>
-<msg time="2026-03-29T16:32:46.945956" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\results\\browser\\traces\\temp\\805a58df-ca44-47b9-bb45-6480eb5a3f80"}</msg>
+<msg time="2026-04-18T15:30:31.803233" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\outputs\\browser\\traces\\temp\\4e2bd6b9-4456-45a0-a223-ea3aedd5b051"}</msg>
+<msg time="2026-04-18T15:30:31.839569" level="INFO">Starting Browser process C:\Users\Bashar\AppData\Roaming\Python\Python314\site-packages\Browser\wrapper\index.js using at 127.0.0.1:57544</msg>
+<msg time="2026-04-18T15:30:33.085892" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\Bashar\\OneDrive - Metropolia Ammattikorkeakoulu Oy\\Desktop\\WebDevCourse\\my-vite-app\\outputs\\browser\\traces\\temp\\4e2bd6b9-4456-45a0-a223-ea3aedd5b051"}</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.674640" elapsed="1.271588"/>
+<status status="PASS" start="2026-04-18T15:30:31.802323" elapsed="1.283882"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:47.449272" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
-<msg time="2026-03-29T16:32:47.449411" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-04-18T15:30:33.587165" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-04-18T15:30:33.587282" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>${WEBFORM_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:46.950090" elapsed="0.499740"/>
+<status status="PASS" start="2026-04-18T15:30:33.087760" elapsed="0.499778"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:47.460220" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-04-18T15:30:33.603510" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.450261" elapsed="0.010116"/>
+<status status="PASS" start="2026-04-18T15:30:33.589332" elapsed="0.014413"/>
 </kw>
 <kw name="Select Options By" owner="Browser">
-<msg time="2026-03-29T16:32:47.461405" level="INFO">Selects the option(s) 2 by attribute SelectAttribute.value from element select[name="my-select"].</msg>
+<msg time="2026-04-18T15:30:33.605745" level="INFO">Selects the option(s) 2 by attribute SelectAttribute.value from element select[name="my-select"].</msg>
 <arg>select[name="my-select"]</arg>
 <arg>value</arg>
 <arg>2</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.460731" elapsed="0.064894"/>
+<status status="PASS" start="2026-04-18T15:30:33.604600" elapsed="0.066058"/>
 </kw>
 <kw name="Get Selected Options" owner="Browser">
-<msg time="2026-03-29T16:32:47.546290" level="INFO">entry {
+<msg time="2026-04-18T15:30:33.688198" level="INFO">entry {
   value: "Open this select menu"
   label: "Open this select menu"
 }
@@ -284,7 +1163,7 @@ entry {
   index: 3
 }
 </msg>
-<msg time="2026-03-29T16:32:47.546507" level="INFO">${arvo} = ['2']</msg>
+<msg time="2026-04-18T15:30:33.688425" level="INFO">${arvo} = ['2']</msg>
 <var>${arvo}</var>
 <arg>select[name="my-select"]</arg>
 <arg>value</arg>
@@ -292,61 +1171,61 @@ entry {
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the specified attribute of selected options of the ``select`` element.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.526125" elapsed="0.020411"/>
+<status status="PASS" start="2026-04-18T15:30:33.671115" elapsed="0.017353"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${arvo}[0]</arg>
 <arg>2</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.546989" elapsed="0.000855"/>
+<status status="PASS" start="2026-04-18T15:30:33.688899" elapsed="0.000710"/>
 </kw>
 <doc>Testaa normaalia &lt;select&gt;-pudotusvalikkoa.
 Valitaan "Two" ja varmistetaan arvo.</doc>
-<status status="PASS" start="2026-03-29T16:32:45.673850" elapsed="1.874370"/>
+<status status="PASS" start="2026-04-18T15:30:31.801542" elapsed="1.888402"/>
 </test>
-<test id="s1-s2-t2" name="Dropdown Datalist - Kirjoitetaan arvo datalist-kenttään" line="26">
+<test id="s1-s6-t2" name="Dropdown Datalist - Kirjoitetaan arvo datalist-kenttään" line="26">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:47.553370" level="INFO">Switching browser to browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:47.557238" level="INFO">Successfully changed active browser: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:47.557420" level="INFO">Reusing existing browser with id: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
+<msg time="2026-04-18T15:30:33.695169" level="INFO">Switching browser to browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:33.698280" level="INFO">Successfully changed active browser: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:33.698404" level="INFO">Reusing existing browser with id: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.552840" elapsed="0.004669"/>
+<status status="PASS" start="2026-04-18T15:30:33.694278" elapsed="0.004190"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:47.695179" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-04-18T15:30:33.849135" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
 <arg>${WEBFORM_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.557863" elapsed="0.137584"/>
+<status status="PASS" start="2026-04-18T15:30:33.698845" elapsed="0.150610"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:47.704885" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-04-18T15:30:33.857089" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.695988" elapsed="0.009054"/>
+<status status="PASS" start="2026-04-18T15:30:33.849813" elapsed="0.007449"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:47.706367" level="INFO">Types the text 'New York' in the given field.</msg>
+<msg time="2026-04-18T15:30:33.858641" level="INFO">Types the text 'New York' in the given field.</msg>
 <arg>input[name="my-datalist"]</arg>
 <arg>New York</arg>
 <arg>delay=0.1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.705431" elapsed="0.898989"/>
+<status status="PASS" start="2026-04-18T15:30:33.857657" elapsed="0.905276"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:48.625941" level="INFO">Property: 'New York'</msg>
-<msg time="2026-03-29T16:32:48.626137" level="INFO">${arvo} = New York</msg>
+<msg time="2026-04-18T15:30:34.783458" level="INFO">Property: 'New York'</msg>
+<msg time="2026-04-18T15:30:34.783647" level="INFO">${arvo} = New York</msg>
 <var>${arvo}</var>
 <arg>input[name="my-datalist"]</arg>
 <arg>value</arg>
@@ -354,51 +1233,51 @@ Valitaan "Two" ja varmistetaan arvo.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.604876" elapsed="0.021307"/>
+<status status="PASS" start="2026-04-18T15:30:34.763322" elapsed="0.020370"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${arvo}</arg>
 <arg>New York</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.626552" elapsed="0.000408"/>
+<status status="PASS" start="2026-04-18T15:30:34.784080" elapsed="0.000599"/>
 </kw>
 <doc>Testaa &lt;datalist&gt;-pudotusvalikkoa, johon voi kirjoittaa vapaasti
 tai valita ehdotetuista arvoista.</doc>
-<status status="PASS" start="2026-03-29T16:32:47.552235" elapsed="1.074964"/>
+<status status="PASS" start="2026-04-18T15:30:33.693579" elapsed="1.091369"/>
 </test>
-<test id="s1-s2-t3" name="Checkbox - Checked-tila vaihdetaan" line="36">
+<test id="s1-s6-t3" name="Checkbox - Checked-tila vaihdetaan" line="36">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:48.630747" level="INFO">Switching browser to browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:48.632890" level="INFO">Successfully changed active browser: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:48.633025" level="INFO">Reusing existing browser with id: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
+<msg time="2026-04-18T15:30:34.788505" level="INFO">Switching browser to browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:34.790318" level="INFO">Successfully changed active browser: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:34.790480" level="INFO">Reusing existing browser with id: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.629942" elapsed="0.003168"/>
+<status status="PASS" start="2026-04-18T15:30:34.787860" elapsed="0.002718"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:48.768000" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-04-18T15:30:34.919352" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
 <arg>${WEBFORM_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.633480" elapsed="0.134795"/>
+<status status="PASS" start="2026-04-18T15:30:34.790943" elapsed="0.128635"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:48.775509" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-04-18T15:30:34.927188" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.768637" elapsed="0.006989"/>
+<status status="PASS" start="2026-04-18T15:30:34.919970" elapsed="0.007397"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:48.815235" level="INFO">Property: True</msg>
-<msg time="2026-03-29T16:32:48.815456" level="INFO">${checked_before} = True</msg>
+<msg time="2026-04-18T15:30:34.970378" level="INFO">Property: True</msg>
+<msg time="2026-04-18T15:30:34.970615" level="INFO">${checked_before} = True</msg>
 <var>${checked_before}</var>
 <arg>id=my-check-1</arg>
 <arg>checked</arg>
@@ -406,23 +1285,23 @@ tai valita ehdotetuista arvoista.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.776009" elapsed="0.039501"/>
+<status status="PASS" start="2026-04-18T15:30:34.927752" elapsed="0.042900"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${checked_before}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.815926" elapsed="0.000646"/>
+<status status="PASS" start="2026-04-18T15:30:34.971043" elapsed="0.000686"/>
 </kw>
 <kw name="Uncheck Checkbox" owner="Browser">
 <arg>id=my-check-1</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Unchecks the checkbox found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.816795" elapsed="0.029146"/>
+<status status="PASS" start="2026-04-18T15:30:34.972029" elapsed="0.032727"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:48.856756" level="INFO">Property: False</msg>
-<msg time="2026-03-29T16:32:48.856913" level="INFO">${checked_after} = False</msg>
+<msg time="2026-04-18T15:30:35.016896" level="INFO">Property: False</msg>
+<msg time="2026-04-18T15:30:35.017101" level="INFO">${checked_after} = False</msg>
 <var>${checked_after}</var>
 <arg>id=my-check-1</arg>
 <arg>checked</arg>
@@ -430,16 +1309,16 @@ tai valita ehdotetuista arvoista.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.846463" elapsed="0.010476"/>
+<status status="PASS" start="2026-04-18T15:30:35.005224" elapsed="0.011919"/>
 </kw>
 <kw name="Should Not Be True" owner="BuiltIn">
 <arg>${checked_after}</arg>
 <doc>Fails if the given condition is true.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.857210" elapsed="0.000374"/>
+<status status="PASS" start="2026-04-18T15:30:35.017484" elapsed="0.000570"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:48.867199" level="INFO">Property: False</msg>
-<msg time="2026-03-29T16:32:48.867419" level="INFO">${unchecked_before} = False</msg>
+<msg time="2026-04-18T15:30:35.029436" level="INFO">Property: False</msg>
+<msg time="2026-04-18T15:30:35.029661" level="INFO">${unchecked_before} = False</msg>
 <var>${unchecked_before}</var>
 <arg>id=my-check-2</arg>
 <arg>checked</arg>
@@ -447,23 +1326,23 @@ tai valita ehdotetuista arvoista.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.857760" elapsed="0.009695"/>
+<status status="PASS" start="2026-04-18T15:30:35.018356" elapsed="0.011352"/>
 </kw>
 <kw name="Should Not Be True" owner="BuiltIn">
 <arg>${unchecked_before}</arg>
 <doc>Fails if the given condition is true.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.867853" elapsed="0.000524"/>
+<status status="PASS" start="2026-04-18T15:30:35.030238" elapsed="0.000551"/>
 </kw>
 <kw name="Check Checkbox" owner="Browser">
 <arg>id=my-check-2</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.868633" elapsed="0.027911"/>
+<status status="PASS" start="2026-04-18T15:30:35.031050" elapsed="0.024793"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:48.907110" level="INFO">Property: True</msg>
-<msg time="2026-03-29T16:32:48.907344" level="INFO">${unchecked_after} = True</msg>
+<msg time="2026-04-18T15:30:35.065987" level="INFO">Property: True</msg>
+<msg time="2026-04-18T15:30:35.066180" level="INFO">${unchecked_after} = True</msg>
 <var>${unchecked_after}</var>
 <arg>id=my-check-2</arg>
 <arg>checked</arg>
@@ -471,50 +1350,50 @@ tai valita ehdotetuista arvoista.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.896964" elapsed="0.010425"/>
+<status status="PASS" start="2026-04-18T15:30:35.056298" elapsed="0.009916"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${unchecked_after}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.907952" elapsed="0.000796"/>
+<status status="PASS" start="2026-04-18T15:30:35.066550" elapsed="0.000701"/>
 </kw>
 <doc>Testaa checkboxia: oletuksena checkbox 1 on checked ja checkbox 2 on unchecked.
 Poistetaan valinta checkbox 1:stä ja asetetaan checkbox 2 checked-tilaan.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.629161" elapsed="0.279884"/>
+<status status="PASS" start="2026-04-18T15:30:34.787179" elapsed="0.280328"/>
 </test>
-<test id="s1-s2-t4" name="Radio Button - Valitaan toinen vaihtoehto" line="55">
+<test id="s1-s6-t4" name="Radio Button - Valitaan toinen vaihtoehto" line="55">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:48.912764" level="INFO">Switching browser to browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:48.915031" level="INFO">Successfully changed active browser: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:48.915217" level="INFO">Reusing existing browser with id: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
+<msg time="2026-04-18T15:30:35.071496" level="INFO">Switching browser to browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:35.074326" level="INFO">Successfully changed active browser: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:35.074456" level="INFO">Reusing existing browser with id: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.912081" elapsed="0.003239"/>
+<status status="PASS" start="2026-04-18T15:30:35.070750" elapsed="0.003775"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:49.026188" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-04-18T15:30:35.195650" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
 <arg>${WEBFORM_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.915638" elapsed="0.110875"/>
+<status status="PASS" start="2026-04-18T15:30:35.074880" elapsed="0.121211"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:49.034310" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-04-18T15:30:35.211141" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.026927" elapsed="0.007554"/>
+<status status="PASS" start="2026-04-18T15:30:35.196965" elapsed="0.014361"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:49.073831" level="INFO">Property: True</msg>
-<msg time="2026-03-29T16:32:49.074040" level="INFO">${radio1_default} = True</msg>
+<msg time="2026-04-18T15:30:35.260254" level="INFO">Property: True</msg>
+<msg time="2026-04-18T15:30:35.260453" level="INFO">${radio1_default} = True</msg>
 <var>${radio1_default}</var>
 <arg>id=my-radio-1</arg>
 <arg>checked</arg>
@@ -522,24 +1401,24 @@ Poistetaan valinta checkbox 1:stä ja asetetaan checkbox 2 checked-tilaan.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.034859" elapsed="0.039229"/>
+<status status="PASS" start="2026-04-18T15:30:35.211846" elapsed="0.048642"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${radio1_default}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.074490" elapsed="0.000635"/>
+<status status="PASS" start="2026-04-18T15:30:35.260833" elapsed="0.000698"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-03-29T16:32:49.075819" level="INFO">Clicks the element 'id=my-radio-2'.</msg>
+<msg time="2026-04-18T15:30:35.262517" level="INFO">Clicks the element 'id=my-radio-2'.</msg>
 <arg>id=my-radio-2</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.075383" elapsed="0.026605"/>
+<status status="PASS" start="2026-04-18T15:30:35.261797" elapsed="0.028494"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:49.115645" level="INFO">Property: True</msg>
-<msg time="2026-03-29T16:32:49.115867" level="INFO">${radio2_checked} = True</msg>
+<msg time="2026-04-18T15:30:35.301569" level="INFO">Property: True</msg>
+<msg time="2026-04-18T15:30:35.301770" level="INFO">${radio2_checked} = True</msg>
 <var>${radio2_checked}</var>
 <arg>id=my-radio-2</arg>
 <arg>checked</arg>
@@ -547,16 +1426,16 @@ Poistetaan valinta checkbox 1:stä ja asetetaan checkbox 2 checked-tilaan.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.102415" elapsed="0.013502"/>
+<status status="PASS" start="2026-04-18T15:30:35.290727" elapsed="0.011078"/>
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${radio2_checked}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.116331" elapsed="0.000612"/>
+<status status="PASS" start="2026-04-18T15:30:35.302168" elapsed="0.000665"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:49.126412" level="INFO">Property: False</msg>
-<msg time="2026-03-29T16:32:49.126617" level="INFO">${radio1_after} = False</msg>
+<msg time="2026-04-18T15:30:35.314974" level="INFO">Property: False</msg>
+<msg time="2026-04-18T15:30:35.315182" level="INFO">${radio1_after} = False</msg>
 <var>${radio1_after}</var>
 <arg>id=my-radio-1</arg>
 <arg>checked</arg>
@@ -564,50 +1443,50 @@ Poistetaan valinta checkbox 1:stä ja asetetaan checkbox 2 checked-tilaan.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.117279" elapsed="0.009388"/>
+<status status="PASS" start="2026-04-18T15:30:35.303210" elapsed="0.012023"/>
 </kw>
 <kw name="Should Not Be True" owner="BuiltIn">
 <arg>${radio1_after}</arg>
 <doc>Fails if the given condition is true.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.127229" elapsed="0.000587"/>
+<status status="PASS" start="2026-04-18T15:30:35.315742" elapsed="0.000675"/>
 </kw>
 <doc>Testaa radio-nappeja: valitaan radio 2 ja varmistetaan,
 että se on valittu ja radio 1 ei ole.</doc>
-<status status="PASS" start="2026-03-29T16:32:48.911565" elapsed="0.216455"/>
+<status status="PASS" start="2026-04-18T15:30:35.070154" elapsed="0.246526"/>
 </test>
-<test id="s1-s2-t5" name="File Input - Tiedostokenttä tunnistetaan" line="72">
+<test id="s1-s6-t5" name="File Input - Tiedostokenttä tunnistetaan" line="72">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:49.131206" level="INFO">Switching browser to browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:49.133810" level="INFO">Successfully changed active browser: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:49.133982" level="INFO">Reusing existing browser with id: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
+<msg time="2026-04-18T15:30:35.320786" level="INFO">Switching browser to browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:35.323573" level="INFO">Successfully changed active browser: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:35.323781" level="INFO">Reusing existing browser with id: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.130687" elapsed="0.003398"/>
+<status status="PASS" start="2026-04-18T15:30:35.320007" elapsed="0.003888"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:49.237505" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-04-18T15:30:35.478487" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
 <arg>${WEBFORM_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.134419" elapsed="0.103362"/>
+<status status="PASS" start="2026-04-18T15:30:35.324300" elapsed="0.154461"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:49.245853" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-04-18T15:30:35.488892" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.238154" elapsed="0.007864"/>
+<status status="PASS" start="2026-04-18T15:30:35.479232" elapsed="0.009835"/>
 </kw>
 <kw name="Get Property" owner="Browser">
-<msg time="2026-03-29T16:32:49.282023" level="INFO">Property: 'file'</msg>
-<msg time="2026-03-29T16:32:49.282226" level="INFO">${type} = file</msg>
+<msg time="2026-04-18T15:30:35.539524" level="INFO">Property: 'file'</msg>
+<msg time="2026-04-18T15:30:35.539772" level="INFO">${type} = file</msg>
 <var>${type}</var>
 <arg>input[name="my-file"]</arg>
 <arg>type</arg>
@@ -615,57 +1494,57 @@ että se on valittu ja radio 1 ei ole.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the ``property`` of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.246414" elapsed="0.035859"/>
+<status status="PASS" start="2026-04-18T15:30:35.489478" elapsed="0.050344"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${type}</arg>
 <arg>file</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.282678" elapsed="0.000531"/>
+<status status="PASS" start="2026-04-18T15:30:35.540160" elapsed="0.000627"/>
 </kw>
 <doc>Varmistaa, että tiedostokenttä löytyy sivulta ja on vuorovaikutteinen.
 (Tiedoston lataus ei tehdä tässä testissä.)</doc>
-<status status="PASS" start="2026-03-29T16:32:49.130153" elapsed="0.153324"/>
+<status status="PASS" start="2026-04-18T15:30:35.319424" elapsed="0.221673"/>
 </test>
-<test id="s1-s2-t6" name="Kaikkien kenttien lomake lähetetään onnistuneesti" line="81">
+<test id="s1-s6-t6" name="Kaikkien kenttien lomake lähetetään onnistuneesti" line="81">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-29T16:32:49.287158" level="INFO">Switching browser to browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:49.289569" level="INFO">Successfully changed active browser: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
-<msg time="2026-03-29T16:32:49.289702" level="INFO">Reusing existing browser with id: browser=c26f46ac-848f-4203-a438-99e9307ee07f</msg>
+<msg time="2026-04-18T15:30:35.545495" level="INFO">Switching browser to browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:35.548247" level="INFO">Successfully changed active browser: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
+<msg time="2026-04-18T15:30:35.548446" level="INFO">Reusing existing browser with id: browser=bff97e7f-465a-42db-b42f-165612ecc1ce</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.286538" elapsed="0.003261"/>
+<status status="PASS" start="2026-04-18T15:30:35.544620" elapsed="0.003935"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-29T16:32:49.383118" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-04-18T15:30:35.707310" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
 <arg>${WEBFORM_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.290159" elapsed="0.093156"/>
+<status status="PASS" start="2026-04-18T15:30:35.548939" elapsed="0.158725"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-29T16:32:49.390460" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-04-18T15:30:35.723834" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.383636" elapsed="0.006983"/>
+<status status="PASS" start="2026-04-18T15:30:35.708045" elapsed="0.015948"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:49.391654" level="INFO">Types the text 'Testi' in the given field.</msg>
+<msg time="2026-04-18T15:30:35.725199" level="INFO">Types the text 'Testi' in the given field.</msg>
 <arg>input[name="my-text"]</arg>
 <arg>Testi</arg>
 <arg>delay=0.05 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.390945" elapsed="0.329347"/>
+<status status="PASS" start="2026-04-18T15:30:35.724338" elapsed="0.330338"/>
 </kw>
 <kw name="Type Secret" owner="Browser">
 <arg>input[name="my-password"]</arg>
@@ -675,64 +1554,64 @@ että se on valittu ja radio 1 ei ole.</doc>
 <tag>Setter</tag>
 <doc>Types the given secret from ``variable_name`` into the text field
 found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.720634" elapsed="0.500055"/>
+<status status="PASS" start="2026-04-18T15:30:36.055057" elapsed="0.472749"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:50.221700" level="INFO">Types the text 'Robot Framework testi' in the given field.</msg>
+<msg time="2026-04-18T15:30:36.529090" level="INFO">Types the text 'Robot Framework testi' in the given field.</msg>
 <arg>textarea[name="my-textarea"]</arg>
 <arg>Robot Framework testi</arg>
 <arg>delay=0.05 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:50.221067" elapsed="1.260971"/>
+<status status="PASS" start="2026-04-18T15:30:36.528229" elapsed="1.265754"/>
 </kw>
 <kw name="Select Options By" owner="Browser">
-<msg time="2026-03-29T16:32:51.482971" level="INFO">Selects the option(s) 3 by attribute SelectAttribute.value from element select[name="my-select"].</msg>
+<msg time="2026-04-18T15:30:37.795125" level="INFO">Selects the option(s) 3 by attribute SelectAttribute.value from element select[name="my-select"].</msg>
 <arg>select[name="my-select"]</arg>
 <arg>value</arg>
 <arg>3</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:51.482388" elapsed="0.023153"/>
+<status status="PASS" start="2026-04-18T15:30:37.794382" elapsed="0.026415"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-29T16:32:51.506442" level="INFO">Types the text 'San Francisco' in the given field.</msg>
+<msg time="2026-04-18T15:30:37.822002" level="INFO">Types the text 'San Francisco' in the given field.</msg>
 <arg>input[name="my-datalist"]</arg>
 <arg>San Francisco</arg>
 <arg>delay=0.05 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:51.505888" elapsed="0.802973"/>
+<status status="PASS" start="2026-04-18T15:30:37.821195" elapsed="0.789283"/>
 </kw>
 <kw name="Check Checkbox" owner="Browser">
 <arg>id=my-check-2</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:52.309293" elapsed="0.018149"/>
+<status status="PASS" start="2026-04-18T15:30:38.610860" elapsed="0.026609"/>
 </kw>
 <kw name="Click" owner="Browser">
-<msg time="2026-03-29T16:32:52.328616" level="INFO">Clicks the element 'id=my-radio-2'.</msg>
+<msg time="2026-04-18T15:30:38.639822" level="INFO">Clicks the element 'id=my-radio-2'.</msg>
 <arg>id=my-radio-2</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:52.328018" elapsed="0.025362"/>
+<status status="PASS" start="2026-04-18T15:30:38.638851" elapsed="0.031450"/>
 </kw>
 <kw name="Click With Options" owner="Browser">
-<msg time="2026-03-29T16:32:52.354727" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
+<msg time="2026-04-18T15:30:38.671825" level="INFO">Clicks the element 'css=button[type="submit"]'.</msg>
 <arg>css=button[type="submit"]</arg>
 <arg>delay=1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:52.353852" elapsed="1.204953"/>
+<status status="PASS" start="2026-04-18T15:30:38.670710" elapsed="1.074627"/>
 </kw>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-03-29T16:32:53.585417" level="INFO">Text: 'Received!'</msg>
+<msg time="2026-04-18T15:30:39.773971" level="INFO">Text: 'Received!'</msg>
 <arg>id=message</arg>
 <arg>==</arg>
 <arg>Received!</arg>
@@ -740,30 +1619,34 @@ found by ``selector``.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-29T16:32:53.559259" elapsed="0.026267"/>
+<status status="PASS" start="2026-04-18T15:30:39.745724" elapsed="0.028386"/>
 </kw>
 <doc>Täyttää kaikki testatut kentät ja klikkaa Submit – varmistaa kuittaussivun.</doc>
-<status status="PASS" start="2026-03-29T16:32:49.286014" elapsed="4.299811"/>
+<status status="PASS" start="2026-04-18T15:30:35.543849" elapsed="4.230640"/>
 </test>
 <doc>Tehtävä 3: Web form -testit Browser Libraryn avulla
 Testaa Selenium Web Form -esimerkkisivun kenttiä:
 Dropdown (select), Dropdown (datalist), File input,
 Checkboxit ja Radio buttonit.
 Testisivu: https://www.selenium.dev/selenium/web/web-form.html</doc>
-<status status="PASS" start="2026-03-29T16:32:45.613657" elapsed="7.974138"/>
+<status status="PASS" start="2026-04-18T15:30:31.727689" elapsed="8.049146"/>
 </suite>
-<status status="PASS" start="2026-03-29T16:32:35.872799" elapsed="17.769448"/>
+<status status="PASS" start="2026-04-18T15:30:05.181387" elapsed="34.666243"/>
 </suite>
 <statistics>
 <total>
-<stat pass="9" fail="0" skip="0">All Tests</stat>
+<stat pass="21" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Login Tests &amp; Webform Tests" id="s1" pass="9" fail="0" skip="0">Login Tests &amp; Webform Tests</stat>
-<stat name="Login Tests" id="s1-s1" pass="3" fail="0" skip="0">Login Tests &amp; Webform Tests.Login Tests</stat>
-<stat name="Webform Tests" id="s1-s2" pass="6" fail="0" skip="0">Login Tests &amp; Webform Tests.Webform Tests</stat>
+<stat name="Tests" id="s1" pass="21" fail="0" skip="0">Tests</stat>
+<stat name="Api Tests" id="s1-s1" pass="4" fail="0" skip="0">Tests.Api Tests</stat>
+<stat name="Entry Tests" id="s1-s2" pass="4" fail="0" skip="0">Tests.Entry Tests</stat>
+<stat name="Login Crypto Tests" id="s1-s3" pass="2" fail="0" skip="0">Tests.Login Crypto Tests</stat>
+<stat name="Login Env Tests" id="s1-s4" pass="2" fail="0" skip="0">Tests.Login Env Tests</stat>
+<stat name="Login Tests" id="s1-s5" pass="3" fail="0" skip="0">Tests.Login Tests</stat>
+<stat name="Webform Tests" id="s1-s6" pass="6" fail="0" skip="0">Tests.Webform Tests</stat>
 </suite>
 </statistics>
 <errors>

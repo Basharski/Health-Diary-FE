@@ -2,6 +2,7 @@
 Documentation       Health Diary API Test Suite
 ...                 Tests the REST API endpoints of the Health Diary back-end.
 Library             RequestsLibrary
+Library             Collections
 Resource            ../resources/keywords.resource
 Variables           ../resources/variables.py
 

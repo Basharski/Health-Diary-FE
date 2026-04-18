@@ -41,13 +41,13 @@ Kirjautuminen onnistuu kryptatuilla tunnuksilla
 
 Kryptattu salasana ei näy lokeissa
     [Documentation]    Varmista kirjautuminen ja demonstroi että CryptoLibrary
-    ...                piilottaa salasanan lokeista (korvaa ***-merkeillä).
+    ...                piilottaa salasanan lokeista (variable_decryption=True purkaa automaattisesti).
+    ...                Type Secret käyttää $-notaatiota, jolloin arvo maskautuu ***-merkeillä lokeissa.
     New Browser    chromium    headless=No
     New Page    ${LOGIN_URL}
     Get Title    ==    My Health Diary - Login
-    ${decrypted_pass}=    Get Decrypted Text    ${CRYPTO_PASS}
     Type Text    id=login-username    ${CRYPTO_USER}    delay=0.1 s
-    Input Password    id=login-password    ${decrypted_pass}
+    Type Secret    id=login-password    $CRYPTO_PASS    delay=0.1 s
     Click    id=login-submit
     Sleep    1.5 s
     Get Url    contains    entries
